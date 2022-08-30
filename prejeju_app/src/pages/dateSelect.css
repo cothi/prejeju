@@ -1,0 +1,22 @@
+.main {
+height: 100%;
+width: 100%;
+}
+
+.dateBody {
+  height: 80%;
+  width: 80%;
+  background-color:#BBDEFB;
+}
+
+.bodyContent {
+  display: flex;
+}
+
+.leftPanel {
+}
+
+
+.categoryMain {
+  background-color: #64B5F6 ;
+}
