@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+    <style>
+      body {
+        padding: 150px;
+        padding-top: 50px;
+        background-color: #bbdefb;
+      }
+      .center {
+        display: flex;
+        justify-content: center;
+      }
+      main {
+        margin-top: 60px;
+      }
+      article {
+        width: 800px;
+        display: flex;
+        flex-direction: column;
+      }
+      section {
+        display: block;
+        flex-direction: column;
+        padding: 80px;
+        display: flex;
+        height: 300px;
+        background-color: aliceblue;
+        margin-bottom: 30px;
+      }
+      ul {
+        width: max-content;
+        padding-left: 0;
+        overflow: hidden;
+        overflow-y: scroll;
+      }
+      li {
+        display: flex;
+        height: 70px;
+        list-style: none;
+        border-bottom: 1px solid #989595;
+        align-items: center;
+        scroll-behavior: smooth;
+      }
+      .count {
+        margin-left: 15px;
+        font-size: 25px;
+      }
+      .countbox {
+        padding: 5px;
+        margin-right: 30px;
+        display: flex;
+        align-items: center;
+        width: 100px;
+        height: 40px;
+        background-color: #fff;
+      }
+      #price {
+        margin-left: 200px;
+        margin-right: 30px;
+      }
+      h1 {
+        font-size: 48px;
+      }
+      footer {
+        display: flex;
+        justify-content: space-between;
+      }
+      .cancel {
+        margin-right: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        width: 117px;
+        height: 50px;
+        background-color: #fff;
+      }
+      .ok {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        width: 117px;
+        height: 50px;
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ooo 메뉴</h1>
+
+    <main class="center">
+      <article>
+        <section>
+          <ul>
+            <li>
+              <div class="countbox">
+                <iconify-icon
+                  onclick='count("plus",1)'
+                  icon="akar-icons:arrow-up"
+                  style="color: #1976d2"
+                  width="25"
+                  height="30"
+                ></iconify-icon>
+                <iconify-icon
+                  onclick='count("minus",1)'
+                  icon="akar-icons:arrow-up"
+                  style="color: #1976d2"
+                  width="25"
+                  height="30"
+                  rotate="180deg"
+                ></iconify-icon>
+
+                <div class="count" id="count1">0</div>
+              </div>
+              <div>메뉴 이름</div>
+              <input id="price" type="text" />
+              <button>수정</button>
+            </li>
+
+            <li>
+              <div class="countbox">
+                <iconify-icon
+                  onclick='count("plus",2)'
+                  icon="akar-icons:arrow-up"
+                  style="color: #1976d2"
+                  width="25"
+                  height="30"
+                ></iconify-icon>
+                <iconify-icon
+                  onclick='count("minus",2)'
+                  icon="akar-icons:arrow-up"
+                  style="color: #1976d2"
+                  width="25"
+                  height="30"
+                  rotate="180deg"
+                ></iconify-icon>
+
+                <div class="count" id="count2">0</div>
+              </div>
+              <div>메뉴 이름</div>
+              <input id="price" type="text" />
+              <button>수정</button>
+            </li>
+            <li>
+              <div class="countbox">
+                <iconify-icon
+                  onclick='count("plus",3)'
+                  icon="akar-icons:arrow-up"
+                  style="color: #1976d2"
+                  width="25"
+                  height="30"
+                ></iconify-icon>
+                <iconify-icon
+                  onclick='count("minus",3)'
+                  icon="akar-icons:arrow-up"
+                  style="color: #1976d2"
+                  width="25"
+                  height="30"
+                  rotate="180deg"
+                ></iconify-icon>
+
+                <div class="count" id="count3">0</div>
+              </div>
+              <div>메뉴 이름</div>
+              <input id="price" type="text" />
+              <button>수정</button>
+            </li>
+            <li>
+              <div class="countbox">
+                <iconify-icon
+                  onclick='count("plus",4)'
+                  icon="akar-icons:arrow-up"
+                  style="color: #1976d2"
+                  width="25"
+                  height="30"
+                ></iconify-icon>
+                <iconify-icon
+                  onclick='count("minus",4)'
+                  icon="akar-icons:arrow-up"
+                  style="color: #1976d2"
+                  width="25"
+                  height="30"
+                  rotate="180deg"
+                ></iconify-icon>
+
+                <div class="count" id="count4">0</div>
+              </div>
+              <div>메뉴 이름</div>
+              <input id="price" type="text" />
+              <button>수정</button>
+            </li>
+            <li>
+              <div class="countbox">
+                <iconify-icon
+                  onclick='count("plus",5)'
+                  icon="akar-icons:arrow-up"
+                  style="color: #1976d2"
+                  width="25"
+                  height="30"
+                ></iconify-icon>
+                <iconify-icon
+                  onclick='count("minus",5)'
+                  icon="akar-icons:arrow-up"
+                  style="color: #1976d2"
+                  width="25"
+                  height="30"
+                  rotate="180deg"
+                ></iconify-icon>
+
+                <div class="count" id="count5">0</div>
+              </div>
+              <div>메뉴 이름</div>
+              <input id="price" type="text" />
+              <button>수정</button>
+            </li>
+            <li>
+              <div class="countbox">
+                <iconify-icon
+                  onclick='count("plus",5)'
+                  icon="akar-icons:arrow-up"
+                  style="color: #1976d2"
+                  width="25"
+                  height="30"
+                ></iconify-icon>
+                <iconify-icon
+                  onclick='count("minus",5)'
+                  icon="akar-icons:arrow-up"
+                  style="color: #1976d2"
+                  width="25"
+                  height="30"
+                  rotate="180deg"
+                ></iconify-icon>
+
+                <div class="count" id="count5">0</div>
+              </div>
+              <div>메뉴 이름</div>
+              <input id="price" type="text" />
+              <button>수정</button>
+            </li>
+            <li>
+              <div class="countbox">
+                <iconify-icon
+                  onclick='count("plus",5)'
+                  icon="akar-icons:arrow-up"
+                  style="color: #1976d2"
+                  width="25"
+                  height="30"
+                ></iconify-icon>
+                <iconify-icon
+                  onclick='count("minus",5)'
+                  icon="akar-icons:arrow-up"
+                  style="color: #1976d2"
+                  width="25"
+                  height="30"
+                  rotate="180deg"
+                ></iconify-icon>
+
+                <div class="count" id="count5">0</div>
+              </div>
+              <div>메뉴 이름</div>
+              <input id="price" type="text" />
+              <button>수정</button>
+            </li>
+          </ul>
+        </section>
+        <footer>
+          <div style="font-size: 40px">총가격</div>
+
+          <div style="display: flex">
+            <div class="cancel">취소</div>
+            <div class="ok">확인</div>
+          </div>
+        </footer>
+      </article>
+    </main>
+  </body>
+
+  <script>
+    function count(type, num) {
+      const resultElement = document.getElementById(`count${num}`);
+
+      let number = resultElement.innerText;
+
+      if (type === "plus") {
+        number = parseInt(number) + 1;
+      } else if (type === "minus") {
+        if (number != 0) number = parseInt(number) - 1;
+      }
+
+      resultElement.innerText = number;
+    }
+  </script>
+</html>
