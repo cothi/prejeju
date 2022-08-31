@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- nextIcon -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -63,14 +65,26 @@
       h4{
         font-size: 28px;
       }
+      .backbutton{
+        margin-left: 40px;
+        color: #1976D2;
+      }
+      .nextbutton{  
+        margin-right: 40px;
+        color: #1976D2;
+      }
+      footer{
+        display: flex;
+        justify-content: space-between;
+      }
     </style>
   </head>
   <body>
     <main>
       <nav class="container">
-        <h1>숙박 <a href=""> 가격보러가기</a></h1>
+        <h1>숙박 <a href="https://www.goodchoice.kr/"> 가격보러가기</a></h1>
 
-        <h1>렌터카 <a href="">가격보러가기</a></h1>
+        <h1>렌트카 <a href="https://www.jejurentcar.co.kr/">가격보러가기</a></h1>
       </nav>
 
       <article class="container box">
@@ -88,6 +102,10 @@
         </section>
       </article>
     </main>
+    <footer >
+      <div class="backbutton "><iconify-icon icon="carbon:next-filled" width="64" rotate="180deg"></iconify-icon></div>   
+      <div class="nextbutton "><iconify-icon icon="carbon:next-filled" width="64"></iconify-icon></div>
+    </footer>
     <!--column-->
 
   </body>
