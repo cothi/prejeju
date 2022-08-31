@@ -2,13 +2,10 @@
     font-family: 'Black Han Sans', sans-serif;
 }
 
-body {
-    margin: 100px;
+
+html, body {
 }
 
-h1 {
-    font-size: 100px;
-}
 
 h2  {
     margin-bottom: 0;
