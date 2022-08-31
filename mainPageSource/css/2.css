@@ -1,0 +1,122 @@
+* {
+    font-family: 'Black Han Sans', sans-serif;
+}
+
+body {
+    margin: 100px;
+}
+
+h1 {
+    font-size: 100px;
+}
+
+h2  {
+    margin-bottom: 0;
+    width: 100%;
+    font-size: 60px;
+    text-align: end;
+}
+
+.content {
+    display: flex;
+}
+
+.main{
+    background-color: #BBDEFB;
+    margin: 10px;
+    width: 60%;
+    height: 600px;
+    font-size: 70px;
+    padding-left: 30px;
+    padding-right: 50px;
+}
+
+.modify {
+    font-size: 30px;
+    color: white;
+    background-color: #1E88E5;
+    border: none;
+    width: 150px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.sub {
+    width: 39%;
+    font-size: 70px;
+    background-color: #BBDEFB;
+    margin: 10px;
+    font-size: 70px;
+    padding-left: 30px;
+    padding-right: 50px;
+}
+
+.subcontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+ol {
+    overflow-y: scroll;
+    height: 450px;
+
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+}
+
+.subcontent li {
+    margin: 40px;
+    margin-top: 60px;
+}
+
+.main::-webkit-scrollbar {
+    width: 8px;
+    height : 8px;
+}
+
+.subinput {
+    width: 70%;
+    font-size: 50px;
+}
+
+.sum {
+    display: flex;
+    justify-content: space-between;
+}
+
+.subadd {
+    align-self: flex-end;
+    font-size: 30px;
+    color: white;
+    background-color: #1E88E5;
+    border: none;
+    width: 150px;
+    height: 70px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.sumbutton {
+    font-size: 30px;
+    color: white;
+    background-color: #1E88E5;
+    border: none;
+    width: 150px;
+    height: 70px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+}
+
+ol p {
+    font-size: 20px;
+}
