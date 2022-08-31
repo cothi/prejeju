@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
+      body {
+        font-family: "Black Han Sans", sans-serif;
+        margin: 80px;
+        justify-content: space-between;
+      }
+      main {
+        margin-top: 50px;
+        border: 1px solid #64b5f6;
+        border-radius: 20px;
+        padding: 15px;
+      }
+      .datebutton {
+        margin-left: 30px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        width: 230px;
+        height: 63px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #e3f2fd;
+        border-radius: 7px;
+        border: none;
+        font-size: 20px;
+      }
+      article {
+      
+        flex-direction: column;
+        margin: 30px;
+        width: 502px;
+        display: inline-flex;
+        /* background-color: aqua; */
+      }
+      section {
+        border-bottom: 1px solid #989595;
+      }
+      ul {
+        padding-left: 0;
+      }
+      li {
+        display: flex;
+        height: 70px;
+        list-style: none;
+        border-bottom: 1px solid #989595;
+        align-items: center;
+      }
+      .nextbutton{  
+        display: flex;
+        margin-right: 40px;
+        color: #1976D2;
+        justify-content: end;
+      }
+      .menu {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+
+  <body>
+
+      <button class="datebutton">날짜 변경</button>
+      <article style="margin-right: 150px">
+        <div class="menu">
+          <div style="font-size: 28px">출발 운임료 선택</div>
+          <div style="font-size: 20px;">{{start-date}}</div>
+        </div>
+        <main>
+        <section class="menu">
+          <h4>항공사</h4>
+          <h4>출발</h4>
+          <h4>도착</h4>
+          <h4>가격</h4>
+        </section>
+
+        <ul>
+          <li>list</li>
+          <li>list</li>
+          <li>list</li>
+          <li>list</li>
+          <li>list</li>
+      
+        </ul>
+      </article>
+      <article>
+        <div class="menu">
+          <div style="font-size: 28px">출발 운임료 선택</div>
+          <div style="font-size: 20px;">{{start-date}}</div>
+        </div>
+        <main>
+        <section class="menu">
+          <h4>항공사</h4>
+          <h4>출발</h4>
+          <h4>도착</h4>
+          <h4>가격</h4>
+        </section>
+
+        <ul>
+          <li>list</li>
+          <li>list</li>
+          <li>list</li>
+          <li>list</li>
+          <li>list</li>
+   
+        </ul>
+      </article>
+    </main>
+    <footer >
+        <div class="nextbutton "><iconify-icon icon="carbon:next-filled" width="64"></iconify-icon></div>
+      </footer>
+  </body>
+</html>
