@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
       body {
-        font-family: "Black Han Sans", sans-serif;
+        /* font-family: "Black Han Sans", sans-serif; */
         margin: 80px;
         justify-content: space-between;
       }
@@ -57,6 +60,7 @@
         border-bottom: 1px solid #989595;
         align-items: center;
         scroll-behavior:smooth;
+        font-size: 20px;
       }
       .nextbutton{  
         display: flex;
@@ -68,6 +72,7 @@
         display: flex;
         width: 100%;
         justify-content: space-between;
+      
       }
     </style>
   </head>
@@ -88,17 +93,8 @@
           <h4>가격</h4>
         </section>
 
-        <ul>
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
+        <ul id="go">
+          
       
       
         </ul>
@@ -116,12 +112,7 @@
           <h4>가격</h4>
         </section>
 
-        <ul>
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
+        <ul id="back">
    
         </ul>
       </article>
@@ -129,5 +120,117 @@
     <footer >
         <div class="nextbutton "><iconify-icon icon="carbon:next-filled" width="64"></iconify-icon></div>
       </footer>
-  </body>
+
+
+  <script>
+   
+   // const serviceKey='vglSe6FWKCgpNfOr9lYIkRrN2Vbh7jxUVPVzLTNAKRfQoxmCXQ%2FchQ%2BNtajvXT3W052w0twfu1pEhHSy3gqwGg%3D%3D'
+   port={"무안":"NAARKJB","광주":"NAARKJJ", "군산":"NAARKJK","여수":"NAARKJY",
+   "원주":"NAARKNW", "양양":"NAARKNY","제주":"NAARKPC","김해":"NAARKPK","사천":"NAARKPS","울산":"NAARKPU","인천":"NAARKSI",
+   "김포":"NAARKSS","포항":"NAARKTH","대구":"NAARKTN","청주":"NAARKTU"};
+ 
+     function airplane(department,arrive,ulList){ 
+    var xhr = new XMLHttpRequest();
+    var url =
+      "http://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getFlightOpratInfoList"; /*URL*/
+    var queryParams =
+      "?" +
+      encodeURIComponent("serviceKey") +
+      "=" +
+      "vglSe6FWKCgpNfOr9lYIkRrN2Vbh7jxUVPVzLTNAKRfQoxmCXQ%2FchQ%2BNtajvXT3W052w0twfu1pEhHSy3gqwGg%3D%3D"; /*Service Key*/
+
+    queryParams +=
+      "&" + encodeURIComponent("_type") + "=" + encodeURIComponent("json"); /**/
+    queryParams +=
+      "&" +
+      encodeURIComponent("depAirportId") +
+      "=" +
+      encodeURIComponent(port[department]); /**/
+    queryParams +=
+      "&" +
+      encodeURIComponent("arrAirportId") +
+      "=" +
+      encodeURIComponent(port[arrive]); /**/
+    queryParams +=
+      "&" +
+      encodeURIComponent("depPlandTime") +
+      "=" +
+      encodeURIComponent("20220902"); /**/
+      queryParams +=
+      "&" +
+      encodeURIComponent("numOfRows") +
+      "=" +
+      encodeURIComponent("15"); /**/
+
+
+    xhr.open("GET", url + queryParams);
+    xhr.onreadystatechange = function () {
+      if (this.readyState == 4) {
+        temp = JSON.parse(this.responseText);
+        result = temp.response.body.items.item
+
+   result.forEach(element => {
+
+ 
+    if(element.economyCharge>0){
+      deptime=element.depPlandTime.toString().substr(8,2)+" : "+element.depPlandTime.toString().substr(10,2);
+      arrtime=element.arrPlandTime.toString().substr(8,2)+" : "+element.arrPlandTime.toString().substr(10,2);
+ const div1=document.createElement("div");
+ div1.innerHTML=element.airlineNm;
+ const div2=document.createElement("div");
+ div2.innerHTML=deptime;
+ const div3=document.createElement("div");
+ div3.innerHTML=arrtime;
+ const div4=document.createElement("div");
+ div4.innerHTML=element.economyCharge+'원';
+      // var text_add = element.airlineNm+ deptime+deptime+arrtime + element.economyCharge+"원"; //입력할 글씨
+    const li = document.createElement("li");
+li.setAttribute('class','menu');
+    // const textNode = document.createTextNode(text_add);
+  li.appendChild(div1);
+  li.appendChild(div2);
+  li.appendChild(div3);
+  li.appendChild(div4);
+
+  // li.appendChild(textNode);
+   document
+    .getElementById(ulList)
+    .appendChild(li);
+  }
+   });
+ 
+
+      }
+    };
+
+    xhr.send("");
+  }
+airplane("김포", "제주", "go");
+airplane("제주", "김포", "back");
+
+    
+
+</script>
+</body>
 </html>
+
+
+<!-- axios({
+  method: "get", // 통신 방식
+  url : 'http://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getFlightOpratInfoList/', // 서버
+  headers: {'X-Requested-With': 'XMLHttpRequest'}, // 요청 헤더 설정
+  params: { serviceKey: serviceKey, langualge: "en" ,depAirportId:"NAARKJJ", arrAirportId:"NAARKPC", depPlandTime:"20201201"}, // ?파라미터를 전달
+  responseType: 'json', // default
+  
+  maxContentLength: 2000, // http 응답 내용의 max 사이즈
+  validateStatus: function (status) {
+    return status >= 200 && status < 300; // default
+  }, // HTTP응답 상태 코드에 대해 promise의 반환 값이 resolve 또는 reject 할지 지정
+// proxy서버의 hostname과 port를 정의
+  maxRedirects: 5, // node.js에서 사용되는 리다이렉트 최대치를 지정
+  httpsAgent: new https.Agent({ keepAlive: true }), // node.js에서 https를 요청을 할때 사용자 정의 agent를 정의
+})
+.then(function (response) {
+
+console.log(response)
+}); -->
