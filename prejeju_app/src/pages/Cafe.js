@@ -4,13 +4,15 @@ import cafe_data from "./cafe_data.json"
 import "./set.css"
 import { useDispatch } from "react-redux"
 import { cafeSet } from "../actions/actionType"
+import { cafeAdd } from "../actions/action"
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 // 1f7afd5b956dfb17cf04da6a826eb37d
 
 function Cafe({ cafeData }) {
 
 
-  console.log(cafeData)
   const data_json = cafe_data;
   const dispatch = useDispatch();
 
@@ -39,17 +41,18 @@ function Cafe({ cafeData }) {
       </MapMarker>
     )
   }
-  {    /*  <MapMarker position={{ lat: v["위도"], lng: v["경도"] }}
-                      onMouseOver={() => setIsVisible(true)}
-                      onMouseOut={() => setIsVisible(false)}
-                      key={i}
-                    >
-                      {isVisible ? <div style={{ color: "#000" }}>{v["카페이름"]}</div> : null}
-                    </MapMarker> */
-  }
+
+  const Modal = () => (
+    <Popup trigger={<button className="button"> Open Modal </button>} modal>
+      <span> Modal content </span>
+    </Popup>
+  );
 
   return (
     <div className="setRoot">
+
+
+
       <div className="setMain">
         <div className="setLeftPanel">
           <div>
@@ -114,7 +117,7 @@ function Cafe({ cafeData }) {
                       <div>
                         {v["영업시간"]}
                       </div>
-                      <div className="itemMenuBtn" onClick={() => dispatch({ type: cafeSet, payload: "Hello" })}>
+                      <div className="itemMenuBtn" onClick={() => (<Modal />)}>
                         메뉴
                       </div>
                     </div>

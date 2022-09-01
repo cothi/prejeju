@@ -5,8 +5,8 @@ export const cafeSet = "CAFE_SET";
 export const cafeDel = "CAFE_DEL";
 export const cafeAdd = "CAFE_ADD";
 
-export const fooAdd = "FOOD_ADD";
-export const fooDel = "FOOD_DEL";
+export const foodAdd = "FOOD_ADD";
+export const foodDel = "FOOD_DEL";
 
 export const sportsAdd = "SPORTS_ADD";
 export const sportsDel = "SPORTS_DEL";

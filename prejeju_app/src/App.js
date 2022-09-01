@@ -8,11 +8,7 @@ import tree from "./assets/img/tree.svg"
 import { Link } from "react-router-dom";
 
 
-
-
-
 function App() {
-
   return (
     <div className="App">
       <div>
@@ -30,7 +26,6 @@ function App() {
       <img src={stone} className="stone" alt="돌하르방" />
       <img src={tree} className="tree" alt="야자수" />
     </div>
-
   );
 }
 export default App;
