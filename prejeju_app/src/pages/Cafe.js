@@ -1,38 +1,129 @@
-import React, { useEffect } from "react"
-import { RenderAfterNavermapsLoaded, NaverMap } from 'react-naver-maps'
-import { Map, MapMarker } from 'react-kakao-maps-sdk'
+import React, { useEffect, useState } from "react"
+import { Map, MapMarker, useMap } from 'react-kakao-maps-sdk'
+import cafe_data from "./cafe_data.json"
+import "./set.css"
+import { useDispatch } from "react-redux"
+import { cafeSet } from "../actions/actionType"
 
 // 1f7afd5b956dfb17cf04da6a826eb37d
 
-function Cafe() {
+function Cafe({ cafeData }) {
 
+
+  console.log(cafeData)
+  const data_json = cafe_data;
+  const dispatch = useDispatch();
+
+  const [level, setLevel] = useState(10);
+
+  const [mapAxis, setMapAxis] = useState({
+    // 지도의 초기 위치
+    center: { lat: 33.452613, lng: 126.570888 },
+    // 지도 위치 변경시 panto를 이용할지에 대해서 정의
+    isPanto: true,
+  })
+
+  const EventMarkerContainer = ({ position, content }) => {
+    const map = useMap()
+    const [isVisible, setIsVisible] = useState(false);
+
+    return (
+      <MapMarker
+        position={position} // 마커를 표시할 위치
+        // @ts-ignore
+        onClick={(marker) => map.panTo(marker.getPosition())}
+        onMouseOver={() => setIsVisible(true)}
+        onMouseOut={() => setIsVisible(false)}
+      >
+        {isVisible && content}
+      </MapMarker>
+    )
+  }
+  {    /*  <MapMarker position={{ lat: v["위도"], lng: v["경도"] }}
+                      onMouseOver={() => setIsVisible(true)}
+                      onMouseOut={() => setIsVisible(false)}
+                      key={i}
+                    >
+                      {isVisible ? <div style={{ color: "#000" }}>{v["카페이름"]}</div> : null}
+                    </MapMarker> */
+  }
 
   return (
-    <div>
-      <div>
-        <div>
-          카페
-        </div>
-        <div>
-          Map
-        </div>
-      </div>
-      <div>
-        <div>
-          <Map
-            center={{ lat: 33.5563, lng: 126.79581 }}
-            style={{ width: "100%", height: "360px" }}
-          >
-            <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}>
-              <div style={{ color: "#000" }}>Hello World!</div>
-            </MapMarker>
-            <MapMarker position={{ lat: 33.55635, lng: 126.795750 }}>
-              <div style={{ color: "#000" }}>Hello World!!</div>
-            </MapMarker>
-          </Map>
+    <div className="setRoot">
+      <div className="setMain">
+        <div className="setLeftPanel">
+          <div>
+            카페
+          </div>
+          <div>
+            <Map
+              center={mapAxis.center}
+              isPanto="true"
+              level={level}
+              style={{ width: "100%", height: window.innerHeight / 2 }}
+            >
+              {
+                data_json.map((v, i) => {
 
+                  return (
+
+                    < EventMarkerContainer
+                      key={`EventMarkerContainer-${v["위도"]}-${v["경도"]}`
+                      }
+                      position={{ lat: v["위도"], lng: v["경도"] }}
+                      content={
+                        <div className="cursorMap">
+                          <div>
+                            {v["카페이름"]}
+                          </div>
+                          <img width="100" src={v["이미지"]} alt="" />
+                        </div>
+                      }
+                    />
+
+                  )
+                })
+              }
+
+            </Map>
+          </div>
         </div>
-        <div>map</div>
+        <div className="setRightPanel">
+          {
+            data_json.map((v, i) => {
+              return (
+                <div className="itemMain" key={i}>
+                  <div className="itemImgMain">
+                    <img src={v["이미지"]} alt="" className="itemImg" />
+                  </div>
+                  <div className="itemExpMain" onClick={() => {
+                    setLevel(6);
+                    setMapAxis({
+                      center: { lat: v["위도"], lng: v["경도"] },
+                      isPanto: false,
+                    });
+
+                  }}>
+                    <div>
+                      {v["카페이름"]}
+                      <div className="itemTag">
+                        {v["대표"]}
+                      </div>
+                    </div>
+                    <div className="itemRow">
+                      <div>
+                        {v["영업시간"]}
+                      </div>
+                      <div className="itemMenuBtn" onClick={() => dispatch({ type: cafeSet, payload: "Hello" })}>
+                        메뉴
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )
+            })
+          }
+        </div>
       </div>
     </div>
   )

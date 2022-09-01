@@ -8,6 +8,9 @@ import tree from "./assets/img/tree.svg"
 import { Link } from "react-router-dom";
 
 
+
+
+
 function App() {
 
   return (
@@ -16,7 +19,6 @@ function App() {
         <img src={logo} className="logo" alt="로고" />
         <h1 className="mainTitleLogo">내 주머니</h1>
       </div>
-
       <Link to="/type">
         <div className="button">
           <button className="mainButton">여행 경비 추측하러 가기</button>

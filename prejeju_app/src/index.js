@@ -9,18 +9,21 @@ import {
   Route,
 } from "react-router-dom";
 import DateSelect from "./pages/dateSelect"
-import Cafe from "./pages/Cafe"
+import CafePage from "./reducers/cafe"
+import { Provider } from 'react-redux'
+import store from "./store.js"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/type" element={<DateSelect />} />
-      <Route path="/type/cafe" element={<Cafe />} />
-    </Routes>
-  </BrowserRouter >
+  <Provider store={store} >
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/type" element={<DateSelect />} />
+        <Route path="/type/cafe" element={<CafePage />} />
+      </Routes>
+    </BrowserRouter >
+  </Provider>
 );
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
