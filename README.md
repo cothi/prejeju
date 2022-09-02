@@ -81,7 +81,8 @@
   
          
 <img src="https://github.com/limzzum/prejeju/blob/main/images/loading_page.png" width="400" height="240"/>   
-  - 항공 api연결 시간 동안 나타나는 로딩 화면   
+  - ㅁㅁㅁ
+- 항공 api연결 시간 동안 나타나는 로딩 화면   
 
 
      
