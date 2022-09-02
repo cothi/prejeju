@@ -75,6 +75,9 @@ section {
 
   align-items: center;
 }
+.directionCont {
+  cursor: pointer;
+}
 
 .loader {
   display: flex;

@@ -162,7 +162,13 @@ function Airplane({ airData, pageData }) {
       </div>
     )
   }
-
+  const pageObjs = {
+    "운임료": "airplane",
+    "숙박/렌트카": "carlod",
+    "맛집": "food",
+    "카페": "cafe",
+    "관광지": "tour"
+  }
   function nextTab() {
     let pageObj = cookies.get("page")
 
@@ -173,7 +179,7 @@ function Airplane({ airData, pageData }) {
       navigate("/type/result");
     } else {
 
-      setNextPage(pageObj.tailSelect[0]);
+      setNextPage(pageObjs[pageObj.tailSelect[0]]);
       pageObj.tailSelect = pageObj.tailSelect.slice(1, pageObj.tailSelect.length);
       cookies.set("page", pageObj);
       navigate("/type/cafe");

@@ -9,6 +9,9 @@ h2  {
     font-size: 60px;
     text-align: end;
 }
+.logoRe {
+  padding: 0 0 10% 0;
+}
 
 .content {
     display: flex;

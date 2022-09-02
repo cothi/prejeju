@@ -3,6 +3,8 @@ import { Cookies } from "react-cookie";
 import { Link } from "react-router-dom";
 import "./result.css"
 
+import logo from "../assets/img/logo.svg";
+
 function Result() {
   const cookies = new Cookies();
 
@@ -35,8 +37,15 @@ function Result() {
 
   return (
     <div className="mainRoot">
+      <a href="/" className="logoRe">
+        <div>
+          <img src={logo} className="logo" alt="로고" />
+          <h1 className="mainTitleLogo">내 주머니</h1>
+        </div>
+      </a>
       <h1>총 제주 여행 경비</h1>
       <h2>추가하기</h2>
+
       <div className="content">
         <div className="main">
           <div>
