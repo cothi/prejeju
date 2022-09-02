@@ -31,7 +31,7 @@ root.render(
         <Route path="/type/airplane" element={<AirPage />} />
         <Route path="/type/food" element={<FoodPage />} />
         <Route path="/type/tour" element={<TourPage />} />
-        <Route path="/type/result" element={<TourPage />} />
+        <Route path="/type/result" element={<Result />} />
       </Routes>
     </BrowserRouter >
   </Provider>

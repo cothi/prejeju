@@ -57,11 +57,13 @@ function DateSelect() {
     const datess = JSON.parse(JSON.stringify(selectedDayRange))
     setObj["dates"] = datess;
     cookie.set("page", setObj);
-
-    console.log(cookie.get("page"))
+    cookie.set("date", selectedDayRange)
 
 
   }, [selected, selectedDayRange])
+
+
+
 
 
   return (

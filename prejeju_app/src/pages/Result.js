@@ -1,53 +1,42 @@
 import react from "react"
+import { Cookies } from "react-cookie";
+import { Link } from "react-router-dom";
+import "./result.css"
 
 function Result() {
+  const cookies = new Cookies;
+  const cafeData = cookies.get("cafe")
+  const airData = cookies.get("air")
+  const pageData = cookies.get("page")
 
   return (
-    <>
+    <div className="mainRoot">
       <h1>총 제주 여행 경비</h1>
       <h2>추가하기</h2>
-      <div class="content">
-        <div class="main">
-          <ol>
-            <li>
-              카페 : 30,000원 <button class="modify">수정하기</button>
-            </li>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <li>
-              음식점 : 100,000원 <button class="modify">수정하기</button>
-            </li>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <li>
-              항공 운임료 : 150,000원 <button class="modify">수정하기</button>
-            </li>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <li>
-              추가 : 50,000원 <button class="modify">수정하기</button>
-            </li>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </ol>
+      <div className="content">
+        <div className="main">
+
+
         </div>
-        <div class="sub subcontent">
+        <div className="sub subcontent">
           <li>
-            종류 : <input type="text" class="subinput" />
+            종류 : <input type="text" className="subinput" />
           </li>
           <li>
-            가격 : <input type="text" class="subinput" />
+            가격 : <input type="text" className="subinput" />
           </li>
-          <button class="subadd">추가</button>
+          <button className="subadd">추가</button>
         </div>
       </div>
-      <div class="sum">
-        <h1>
-          총 내역 : 500,000원
-        </h1>
-        <div class="buttons">
-          <button class="sumbutton">다시하기</button>
-          <button class="sumbutton" style="background-color: gray;">링크복사</button>
-          <button class="sumbutton" style="background-color: gray;">내보내기</button>
+      <div className="sum">
+
+        <div className="buttons">
+          <Link to="/"><button className="sumbutton">다시하기</button></Link>
+          <button className="sumbutton" onClick={() => alert("준비중")} >링크복사</button>
+          <button className="sumbutton" onClick={() => alert("준비중")} >내보내기</button>
         </div>
       </div>
-    </>
+    </div>
 
 
 

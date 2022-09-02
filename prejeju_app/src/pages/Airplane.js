@@ -21,6 +21,7 @@ function Airplane({ airData, pageData }) {
   const [goText, setGoText] = useState("");
   const [backText, setBackText] = useState("");
 
+  const cookies = new Cookies();
   const setAirObj = {
     name: "",
     start: "",
@@ -38,7 +39,7 @@ function Airplane({ airData, pageData }) {
     "김포": "NAARKSS", "포항": "NAARKTH", "대구": "NAARKTN", "청주": "NAARKTU"
   };
 
-  const airGet = async (department, arrive, ulList, data, pageData) => {
+  const airGet = async (department, arrive, ulList, date, pageData) => {
     let url =
       "http://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getFlightOpratInfoList"; /*URL*/
     let queryParams =
@@ -63,7 +64,7 @@ function Airplane({ airData, pageData }) {
       "&" +
       encodeURIComponent("depPlandTime") +
       "=" +
-      encodeURIComponent("20220904"); /**/
+      encodeURIComponent(date); /**/
     queryParams +=
       "&" +
       encodeURIComponent("numOfRows") +
@@ -111,13 +112,38 @@ function Airplane({ airData, pageData }) {
     }
   }
 
+  function getFullDate(y, m, d) {
+    let year = y.toString();
+    let month = m.toString();
+    let day = d.toString();
+    let ret = year
+
+    if (month.length <= 1) {
+      ret += "0" + m;
+    } else {
+      ret += m;
+    }
+
+    if (day.length <= 1) {
+      ret += "0" + day;
+    } else {
+      ret += day;
+    }
+
+    return ret
+
+  }
+
 
   useEffect(() => {
+    let date = cookies.get("date");
+
+    let goDate = getFullDate(date.from.year, date.from.month, date.from.day);
+    let endDate = getFullDate(date.to.year, date.to.month, date.to.day);
 
     if (backData == null || goData == null) {
-
-      airGet("김포", "제주", "go");
-      airGet("제주", "김포", "back");
+      airGet("김포", "제주", "go", goDate);
+      airGet("제주", "김포", "back", endDate);
     } else {
       cookies.set("air", airPriData);
       dispatch(airplaneAdd(airPriData));
@@ -134,7 +160,6 @@ function Airplane({ airData, pageData }) {
     )
   }
 
-  const cookies = new Cookies();
   function nextTab() {
     let pageObj = cookies.get("page")
 
