@@ -3,7 +3,7 @@
   제주 여행에 가장 적절한 시기를 쉽고 간단하게 알아보자!
   
 ## 목차 🥇
-- [목표와 기능](#1목표와-기능)
+- [목표와 기능](#1목표와-기능-)
 - [개발 환경 및 배포 URL](#2개발-환경-및-배포-URL-)
 - [프로젝트 구조와 개발 일정](#3-프로젝트-구조와-개발-일정-)
 - [역할 분담](#역할-분담-)
@@ -40,7 +40,7 @@
 ### 2.2 배포 URL
 
 ---
-## 3.프로젝트 구조와 개발 일정 ⏲️ 
+## 3.프로젝트 구조와 개발 일정 ⏲
 
 ### 3.1 프로젝트 구조
 
@@ -56,7 +56,7 @@
 
 ---
 
-## 역할 분담 ☑️ 
+## 역할 분담 ☑
 
 🐔 팀장 한지웅 : FE, BE
 
@@ -69,7 +69,7 @@
 
 ---
 
-## UI/BM 🖼️ 
+## UI/BM 🖼
 
 ![figma ui](https://github.com/limzzum/prejeju/blob/main/images/figmaUI.png)
 <img src="https://github.com/limzzum/prejeju/blob/main/images/index_page.png" width="400" height="240"/>
@@ -84,14 +84,14 @@
 <img src="https://github.com/limzzum/prejeju/blob/main/images/page8.png" width="400" height="240"/>
 <img src="https://github.com/limzzum/prejeju/blob/main/images/page9.png" width="400" height="240"/>
 
-## 6. 데이터베이스 모델링 ERD 🏗️ 
+## 6. 데이터베이스 모델링 ERD 🏗
 
 ## 7. 메인 기능 🌟 
 
 ## 8. 추가 기능 ➕ 
 
 
-## 개발 스택 🛠️ 
+## 개발 스택 🛠
 
 ### 앱 개발 
 
