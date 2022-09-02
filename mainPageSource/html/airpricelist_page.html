@@ -119,7 +119,7 @@
     </main>
     <footer >
         <div class="nextbutton "><iconify-icon icon="carbon:next-filled" width="64"></iconify-icon></div>
-      </footer>
+    </footer>
 
 
   <script>
@@ -130,10 +130,10 @@
    "김포":"NAARKSS","포항":"NAARKTH","대구":"NAARKTN","청주":"NAARKTU"};
  
      function airplane(department,arrive,ulList){ 
-    var xhr = new XMLHttpRequest();
-    var url =
+    let xhr = new XMLHttpRequest();
+    let url =
       "http://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getFlightOpratInfoList"; /*URL*/
-    var queryParams =
+    let queryParams =
       "?" +
       encodeURIComponent("serviceKey") +
       "=" +

@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react"
 import { Map, MapMarker, useMap } from 'react-kakao-maps-sdk'
-import cafe_data from "./cafe_data.json"
+import food_data from "./food.json"
 import "./set.css"
 import { useDispatch } from "react-redux"
-import { cafeSet } from "../actions/actionType"
-import { cafeAdd } from "../actions/action"
+
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
 // 1f7afd5b956dfb17cf04da6a826eb37d
 
-function Cafe({ cafeData }) {
-  console.log(cafeData);
+function Food({ foodData }) {
+  console.log(foodData)
 
 
-  const data_json = cafe_data;
+  const data_json = food_data;
   const dispatch = useDispatch();
 
   const [level, setLevel] = useState(10);
@@ -51,13 +50,10 @@ function Cafe({ cafeData }) {
 
   return (
     <div className="setRoot">
-
-
-
       <div className="setMain">
         <div className="setLeftPanel">
           <div>
-            카페
+            음식
           </div>
           <div>
             <Map
@@ -78,7 +74,7 @@ function Cafe({ cafeData }) {
                       content={
                         <div className="cursorMap">
                           <div>
-                            {v["카페이름"]}
+                            {v["음식점이름"]}
                           </div>
                           <img width="100" src={v["이미지"]} alt="" />
                         </div>
@@ -88,7 +84,6 @@ function Cafe({ cafeData }) {
                   )
                 })
               }
-
             </Map>
           </div>
         </div>
@@ -109,7 +104,7 @@ function Cafe({ cafeData }) {
 
                   }}>
                     <div>
-                      {v["카페이름"]}
+                      {v["음식점이름"]}
                       <div className="itemTag">
                         {v["대표"]}
                       </div>
@@ -133,4 +128,4 @@ function Cafe({ cafeData }) {
   )
 }
 
-export default Cafe;
+export default Food;

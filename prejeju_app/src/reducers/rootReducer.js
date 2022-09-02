@@ -12,18 +12,15 @@
 const initialState = {
   cafe: {},
   food: {},
-  sports: {},
   tour: {},
+  carlod: {},
   airplane: {},
-  lodging: {},
   car: {},
 }
 
 const rootReducer = (state = initialState, action) => {
   console.log(action)
-
   switch (action.type) {
-
     default:
       return state;
   }

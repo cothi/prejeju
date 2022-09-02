@@ -25,7 +25,7 @@ function DateSelect() {
 
 
 
-  const pickData = ["숙박", "맛집", "카페", "관광지", "레저스포츠", "렌트카"]
+  const pickData = ["운임료", "숙박/렌트카", "맛집", "카페", "관광지"]
   return (
     <div className="main">
       <div className="dateBody">
@@ -46,7 +46,7 @@ function DateSelect() {
           </div>
           <div className="rightPanel">
             <div className="headerTitle">
-              카테고리
+              선택 카테고리
             </div>
             <div>
               <Grid.Container gap={2}>
@@ -73,9 +73,7 @@ function DateSelect() {
         </div>
         <div className="directionMain">
           <div className="directionCont">
-            <Icon icon="carbon:previous-filled" color="#1976d2" />
             <div>
-              이전
             </div>
           </div>
           <div className="directionCont">

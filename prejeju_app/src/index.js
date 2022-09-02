@@ -10,6 +10,11 @@ import {
 } from "react-router-dom";
 import DateSelect from "./pages/dateSelect"
 import CafePage from "./reducers/cafe"
+import CarLodPage from "./reducers/carlod"
+import AirPage from "./reducers/airplane"
+import FoodPage from "./reducers/food"
+import TourPage from "./reducers/tour"
+
 import { Provider } from 'react-redux'
 import store from "./store.js"
 
@@ -21,6 +26,10 @@ root.render(
         <Route path="/" element={<App />} />
         <Route path="/type" element={<DateSelect />} />
         <Route path="/type/cafe" element={<CafePage />} />
+        <Route path="/type/carlod" element={<CarLodPage />} />
+        <Route path="/type/airplane" element={<AirPage />} />
+        <Route path="/type/food" element={<FoodPage />} />
+        <Route path="/type/tour" element={<TourPage />} />
       </Routes>
     </BrowserRouter >
   </Provider>
