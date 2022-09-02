@@ -4,6 +4,7 @@ import { Calendar } from "react-modern-calendar-datepicker"
 //import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
 import { Checkbox, Grid } from '@nextui-org/react';
 
+import logo from "../assets/img/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { Cookies } from 'react-cookie'
 
@@ -27,7 +28,7 @@ function DateSelect() {
     to: null
   });
   const dispatch = useDispatch();
-  const pickData = ["운임료", "숙박/렌트카", "맛집", "카페", "관광지"];
+  const pickData = ["운임료", "카페",];
   const setObj = {};
 
 
@@ -64,65 +65,80 @@ function DateSelect() {
 
 
   return (
-    <div className="main">
-      <div className="dateBody">
-
-        <div className="bodyContent">
-
-          <div className="leftPanel">
-            <div className="headerTitle">
-              여행 날짜 선택
-            </div>
-            <div>
-
-              <Calendar
-                value={selectedDayRange}
-                onChange={setSelectedDayRange}
-                shouldHighlightWeekends
-              />
-            </div>
-          </div>
-          <div className="rightPanel">
-            <div className="headerTitle">
-              선택 카테고리
-            </div>
-            <div>
-              <Grid.Container gap={2}>
-                <Grid>
-                  <Checkbox.Group
-                    label="-"
-                    value={selected}
-                    onChange={setSelected}
-                    color="secondary"
-
-                  >
-                    {
-                      pickData.map((v, i) => (
-                        <div key={i}>
-                          <Checkbox color="success" value={v}> {i + 1}. {v}</Checkbox>
-                        </div>
-                      ))
-                    }
-                  </Checkbox.Group>
-                </Grid>
-              </Grid.Container>
-            </div>
-          </div>
+    <div>
+      <a href="/">
+        <div>
+          <img src={logo} className="logo" alt="로고" />
+          <h1 className="mainTitleLogo">내 주머니</h1>
         </div>
-        <div className="directionMain">
-          <div className="directionCont">
+      </a>
+      <div className="main">
+
+        <div className="dateBody">
+
+          <div className="bodyContent">
+
+            <div className="leftPanel">
+              <div className="headerTitle">
+                여행 날짜 선택
+              </div>
+              <div>
+
+                <Calendar
+                  value={selectedDayRange}
+                  onChange={setSelectedDayRange}
+                  shouldHighlightWeekends
+                />
+              </div>
+            </div>
+            <div className="rightPanel">
+              <div className="headerTitle">
+                선택 카테고리
+              </div>
+
+              <div>
+                <Grid.Container gap={2}>
+                  <Grid>
+                    <Checkbox.Group
+                      label="-"
+                      value={selected}
+                      onChange={setSelected}
+                      color="secondary"
+
+                    >
+                      {
+                        pickData.map((v, i) => (
+                          <div key={i}>
+                            <Checkbox color="success" value={v}> {i + 1}. {v}</Checkbox>
+                          </div>
+                        ))
+                      }
+                    </Checkbox.Group>
+                  </Grid>
+                </Grid.Container>
+              </div>
+            </div>
             <div>
+              맛집 추가 준비중
             </div>
           </div>
-          <a href={"/type/" + nextTab} >
+          <div className="directionMain">
             <div className="directionCont">
-              다음
-              <Icon icon="carbon:next-filled" color="#1976d2" />
+              <a href={"/type/" + nextTab} >
+                <div className="directionCont">
+                  <div>
+                    다음
+                  </div>
+                  <Icon icon="carbon:next-filled" color="#1976d2" />
+                </div>
+
+              </a>
             </div>
-          </a>
+          </div>
+
         </div>
-      </div>
-    </div >
+      </div >
+    </div>
   )
 }
 

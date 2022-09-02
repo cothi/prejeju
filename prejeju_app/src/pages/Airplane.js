@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { airplaneAdd } from "../actions/action"
 import { Link } from "react-router-dom";
 import { Cookies } from "react-cookie"
+import logo from "../assets/img/logo.svg";
 
 
 function Airplane({ airData, pageData }) {
@@ -37,7 +38,7 @@ function Airplane({ airData, pageData }) {
     "김포": "NAARKSS", "포항": "NAARKTH", "대구": "NAARKTN", "청주": "NAARKTU"
   };
 
-  const airGet = async (department, arrive, ulList, pageData) => {
+  const airGet = async (department, arrive, ulList, data, pageData) => {
     let url =
       "http://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getFlightOpratInfoList"; /*URL*/
     let queryParams =
@@ -118,6 +119,7 @@ function Airplane({ airData, pageData }) {
       airGet("김포", "제주", "go");
       airGet("제주", "김포", "back");
     } else {
+      cookies.set("air", airPriData);
       dispatch(airplaneAdd(airPriData));
     }
   }, [airPriData])
@@ -149,7 +151,12 @@ function Airplane({ airData, pageData }) {
 
   return (
     <>
-
+      <Link to="/">
+        <div>
+          <img src={logo} className="logo" alt="로고" />
+          <h1 className="mainTitleLogo">내 주머니</h1>
+        </div>
+      </Link>
       <button className="datebutton">
         <div>
           출발, {" "}

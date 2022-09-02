@@ -14,6 +14,7 @@ import CarLodPage from "./reducers/carlod"
 import AirPage from "./reducers/airplane"
 import FoodPage from "./reducers/food"
 import TourPage from "./reducers/tour"
+import Result from "./pages/Result"
 
 import { Provider } from 'react-redux'
 import store from "./store.js"
@@ -30,6 +31,7 @@ root.render(
         <Route path="/type/airplane" element={<AirPage />} />
         <Route path="/type/food" element={<FoodPage />} />
         <Route path="/type/tour" element={<TourPage />} />
+        <Route path="/type/result" element={<TourPage />} />
       </Routes>
     </BrowserRouter >
   </Provider>
