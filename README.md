@@ -77,7 +77,7 @@
      
 <img src="https://github.com/limzzum/prejeju/blob/main/images/page1.png" width="400" height="240"/>   
   - 원하는 날짜와 경비에 포함시킬 카테고리 선택   
-     
+         
 <img src="https://github.com/limzzum/prejeju/blob/main/images/loading_page.png" width="400" height="240"/>   
   - 항공 api연결 시간 동안 나타나는 로딩 화면   
      
