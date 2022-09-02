@@ -15,19 +15,23 @@ function Result() {
 
 
   const onChange1 = (event) => {
-    setText(event.target);
+    setText(event.target.value);
   }
 
   const onChange2 = (event) => {
+    setPrice(event.target.value);
+  }
 
-    setPrice(event.target);
+  const addInputData = () => {
+    if (text == null || price == null) {
+      return
+    }
+    setAddData([...addData, { type: text, price: price }])
   }
 
 
 
-  console.log(cafeData);
-  console.log(airData);
-  console.log(pageData);
+
 
   return (
     <div className="mainRoot">
@@ -70,7 +74,7 @@ function Result() {
             cafeData ?
               Object.keys(cafeData).map((v, i) => (
                 cafeData[v].map((k, j) => (
-                  <div className={"itemList"} key={i}>
+                  <div className={"itemList"} key={(j + 1)}>
                     {v}. {k}
                   </div>
                 ))
@@ -78,17 +82,32 @@ function Result() {
               :
               null
           }
+          <div className="titleCafe">
+            추가
+          </div>
+          {
 
+            addData.map((v, i) => {
+              return (
+                <div className="airLi" key={i}>
+                  <div>
+                    {v["type"]}.
+                    {v["price"]}
+                  </div>
+                </div>
+              )
+            })
+          }
 
         </div>
         <div className="sub subcontent">
           <li>
-            종류 : <input type="text" className="subinput" />
+            종류 : <input type="text" onChange={onChange1} className="subinput" />
           </li>
           <li>
-            가격 : <input type="text" className="subinput" />
+            가격 : <input type="text" onChange={onChange2} className="subinput" />
           </li>
-          <button className="subadd">추가</button>
+          <button className="subadd" onClick={() => { addInputData() }}>추가</button>
         </div>
       </div>
       <div className="sum">

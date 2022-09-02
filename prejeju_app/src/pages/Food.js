@@ -10,7 +10,6 @@ import 'reactjs-popup/dist/index.css';
 // 1f7afd5b956dfb17cf04da6a826eb37d
 
 function Food({ foodData }) {
-  console.log(foodData)
 
 
   const data_json = food_data;

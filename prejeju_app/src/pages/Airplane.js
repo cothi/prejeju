@@ -165,7 +165,6 @@ function Airplane({ airData, pageData }) {
 
   function nextTab() {
     let pageObj = cookies.get("page")
-    console.log(pageObj)
 
     if (pageObj.tailSelect.length < 1) {
       setNextPage("result")
