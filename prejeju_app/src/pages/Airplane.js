@@ -1,17 +1,15 @@
 import axios from "axios"
-import react, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import "./airplane.css"
 
 import { Icon } from '@iconify/react';
 import "./dateSelect.css"
-import { useDispatch } from "react-redux";
-import { airplaneAdd } from "../actions/action"
 import { Cookies } from "react-cookie"
 import logo from "../assets/img/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 
 
-function Airplane({ airData, pageData }) {
+function Airplane() {
 
 
   const [goData, setGoData] = useState(null);
@@ -31,10 +29,9 @@ function Airplane({ airData, pageData }) {
     price: "",
   }
 
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [nextPage, setNextPage] = useState("");
+  //const [nextPage, setNextPage] = useState("");
 
   let port = {
     "무안": "NAARKJB", "광주": "NAARKJJ", "군산": "NAARKJK", "여수": "NAARKJY",
@@ -100,7 +97,7 @@ function Airplane({ airData, pageData }) {
 
     let data = setAirObj;
 
-    if (type == "go") {
+    if (type === "go") {
       setAirPriData({
         go: data,
         back: airPriData.back
@@ -149,7 +146,6 @@ function Airplane({ airData, pageData }) {
       airGet("제주", "김포", "back", endDate);
     } else {
       cookies.set("air", airPriData);
-      dispatch(airplaneAdd(airPriData));
     }
   }, [airPriData])
 
@@ -162,27 +158,27 @@ function Airplane({ airData, pageData }) {
       </div>
     )
   }
-  const pageObjs = {
-    "운임료": "airplane",
-    "숙박/렌트카": "carlod",
-    "맛집": "food",
-    "카페": "cafe",
-    "관광지": "tour"
-  }
+  /*   const pageObjs = {
+      "운임료": "airplane",
+      "숙박/렌트카": "carlod",
+      "맛집": "food",
+      "카페": "cafe",
+      "관광지": "tour"
+    } */
   function nextTab() {
     let pageObj = cookies.get("page")
 
     if (pageObj.tailSelect.length < 1) {
-      setNextPage("result")
+      //setNextPage("result")
       pageObj.tailSelect = pageObj.tailSelect.slice(1, pageObj.tailSelect.length);
       cookies.set("page", pageObj);
-      navigate("/type/result");
+      navigate("/prejeju/type/result");
     } else {
 
-      setNextPage(pageObjs[pageObj.tailSelect[0]]);
+      //setNextPage(pageObjs[pageObj.tailSelect[0]]);
       pageObj.tailSelect = pageObj.tailSelect.slice(1, pageObj.tailSelect.length);
       cookies.set("page", pageObj);
-      navigate("/type/cafe");
+      navigate("/prejeju/type/cafe");
     }
 
   };

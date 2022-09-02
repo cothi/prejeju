@@ -3,9 +3,7 @@ import React, { useEffect, useState, useCallback } from "react"
 import { Map, MapMarker, useMap } from 'react-kakao-maps-sdk'
 import cafe_data from "./cafe_data.json"
 import "./set.css"
-import { useDispatch } from "react-redux"
-import { cafeSet } from "../actions/actionType"
-import { cafeAdd } from "../actions/action"
+
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { Checkbox, Grid } from '@nextui-org/react';
@@ -13,7 +11,7 @@ import { Cookies } from "react-cookie"
 import { Link } from "react-router-dom"
 // 1f7afd5b956dfb17cf04da6a826eb37d
 
-function Cafe({ }) {
+function Cafe() {
 
 
   const [showCafe, setShowCafe] = useState({});
@@ -67,7 +65,7 @@ function Cafe({ }) {
   function nextTab() {
     let pageObj = cookies.get("page")
 
-    if (pageObj.tailSelect.length == 0) {
+    if (pageObj.tailSelect.length === 0) {
       setNextPage("result")
     } else {
       setNextPage(pageObj.tailSelect[0]);
@@ -208,7 +206,7 @@ function Cafe({ }) {
       </div>
 
       <div className="footer">
-        <Link to={"/type/" + nextPage} className="nextBtn" onClick={() => nextTab()}>
+        <Link to={"/prejeju/type/" + nextPage} className="nextBtn" onClick={() => nextTab()}>
           <div>
             다음
           </div>

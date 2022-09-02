@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { Map, MapMarker, useMap } from 'react-kakao-maps-sdk'
 import food_data from "./food.json"
 import "./set.css"
-import { useDispatch } from "react-redux"
 
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
 // 1f7afd5b956dfb17cf04da6a826eb37d
 
-function Food({ foodData }) {
+function Food() {
 
 
   const data_json = food_data;
-  const dispatch = useDispatch();
 
   const [level, setLevel] = useState(10);
 

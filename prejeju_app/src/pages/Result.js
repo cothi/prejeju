@@ -1,4 +1,4 @@
-import react, { useState } from "react"
+import { useState } from "react"
 import { Cookies } from "react-cookie";
 import { Link } from "react-router-dom";
 import "./result.css"
@@ -10,7 +10,7 @@ function Result() {
 
   const cafeData = cookies.get("cafe")
   const airData = cookies.get("air")
-  const pageData = cookies.get("page")
+  //const pageData = cookies.get("page")
   const [addData, setAddData] = useState([]);
   const [text, setText] = useState("");
   const [price, setPrice] = useState("");
@@ -37,7 +37,7 @@ function Result() {
 
   return (
     <div className="mainRoot">
-      <a href="/" className="logoRe">
+      <a href="/prejeju" className="logoRe">
         <div>
           <img src={logo} className="logo" alt="로고" />
           <h1 className="mainTitleLogo">내 주머니</h1>

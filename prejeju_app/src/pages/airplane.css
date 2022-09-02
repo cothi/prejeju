@@ -60,7 +60,7 @@ section {
   display: flex;
   margin-right: 40px;
   color: #1976D2;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .menu {
   display: flex;

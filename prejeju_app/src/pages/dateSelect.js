@@ -5,22 +5,19 @@ import { Calendar } from "react-modern-calendar-datepicker"
 import { Checkbox, Grid } from '@nextui-org/react';
 
 import logo from "../assets/img/logo.svg";
-import { Link, useNavigate } from "react-router-dom";
+//import { Link, useNavigate } from "react-router-dom"/* ; */
 import { Cookies } from 'react-cookie'
 
 import { Icon } from '@iconify/react';
 
 
 import "./dateSelect.css"
-import { useDispatch } from "react-redux";
+//import { useDispatch } from "react-redux";
 
-import { pageSet } from "../actions/action"
 
 
 function DateSelect() {
 
-  // ✅ a change in default state: { from: ..., to: ... }
-  const navigate = useNavigate();
 
 
 
@@ -30,11 +27,10 @@ function DateSelect() {
     from: null,
     to: null
   });
-  const dispatch = useDispatch();
   const pickData = ["운임료", "카페",];
-  const setObj = {};
+  let setObj = {};
 
-  const cookies = new Cookies;
+  const cookies = new Cookies();
 
 
 
@@ -140,7 +136,6 @@ function DateSelect() {
                 selected.lenght < 1 || selectedDayRange.to == null || selectedDayRange.from == null ?
                   <a onClick={() => {
                     alert("날짜(출발, 오는 날)와 카테고리(1개 이상 선택)를 확인하세요!")
-
                   }}>
                     <div className="directionCont">
                       <div>

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { Map, MapMarker, useMap } from 'react-kakao-maps-sdk'
 import tour_data from "./tour.json"
 import "./set.css"
-import { useDispatch } from "react-redux"
 
 import logo from "../assets/img/logo.svg";
 import { Link } from "react-router-dom";
@@ -11,12 +10,11 @@ import 'reactjs-popup/dist/index.css';
 
 // 1f7afd5b956dfb17cf04da6a826eb37d
 
-function Tour({ tourData }) {
+function Tour() {
   console.log(tour_data)
 
 
   const data_json = tour_data;
-  const dispatch = useDispatch();
 
   const [level, setLevel] = useState(10);
 

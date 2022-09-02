@@ -16,12 +16,12 @@ function App() {
         <h1 className="mainTitleLogo">내 주머니</h1>
       </div>
       <div>
-        <Link to="/type">
+        <Link to="/prejeju/type">
           <div className="button">
             <button className="mainButton">여행 경비 추측하러 가기</button>
           </div>
         </Link>
-        <Link to="/type/tour">
+        <Link to="/prejeju/type/tour">
           <div className="button">
             <button className="mainButton2">관광지 보러가기</button>
           </div>

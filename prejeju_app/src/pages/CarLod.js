@@ -1,7 +1,6 @@
-import react from "react"
 import "./carLod.css"
 
-function CarLod({ carLodData }) {
+function CarLod() {
 
 
   return (
