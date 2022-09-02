@@ -137,9 +137,9 @@ function DateSelect() {
           <div className="directionMain">
             <div className="directionCont">
               {
-                selected.lenght < 1 ?
+                selected.lenght < 1 || selectedDayRange.to == null || selectedDayRange.from == null ?
                   <a onClick={() => {
-                    alert("카테고리를 선택하세요!")
+                    alert("날짜(출발, 오는 날)와 카테고리(1개 이상 선택)를 확인하세요!")
 
                   }}>
                     <div className="directionCont">
