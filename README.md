@@ -30,6 +30,9 @@
 ## 개발 환경 및 배포 URL
 
 ### 2.1 개발 환경
+
+  UI 디자인
+    - figma
   Web Framework
     - Django 3.2(Python 3.8)
   서비스 배포 환경
@@ -72,17 +75,17 @@
 
 ## UI/BM
 ![figma ui](https://github.com/limzzum/prejeju/blob/main/images/figmaUI.png)
-<img src="https://github.com/limzzum/prejeju/blob/main/images/index_page.png" width="200" height="400"/>
-<img src="https://github.com/limzzum/prejeju/blob/main/images/page1.png" width="200" height="400"/>
-<img src="https://github.com/limzzum/prejeju/blob/main/images/loading_page.png" width="200" height="400"/>
-<img src="https://github.com/limzzum/prejeju/blob/main/images/page2.png" width="200" height="400"/>
-<img src="https://github.com/limzzum/prejeju/blob/main/images/page3.png" width="200" height="400"/>
-<img src="https://github.com/limzzum/prejeju/blob/main/images/page4.png" width="200" height="400"/>
-<img src="https://github.com/limzzum/prejeju/blob/main/images/page5.png" width="200" height="400"/>
-<img src="https://github.com/limzzum/prejeju/blob/main/images/page6.png" width="200" height="400"/>
-<img src="https://github.com/limzzum/prejeju/blob/main/images/page7.png" width="200" height="400"/>
-<img src="https://github.com/limzzum/prejeju/blob/main/images/page8.png" width="200" height="400"/>
-<img src="https://github.com/limzzum/prejeju/blob/main/images/page9.png" width="200" height="400"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/index_page.png" width="400" height="240"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page1.png" width="400" height="240"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/loading_page.png" width="400" height="240"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page2.png" width="400" height="240"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page3.png" width="400" height="240"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page4.png" width="400" height="240"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page5.png" width="400" height="240"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page6.png" width="400" height="240"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page7.png" width="400" height="240"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page8.png" width="400" height="240"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page9.png" width="400" height="240"/>
 
 ## 6. 데이터베이스 모델링(ERD)
 
@@ -102,12 +105,6 @@
 - 
 
 ---
-
-# 프로젝트 자료 📒
-
-- 발표 PPT
-
-[나무한구루.pdf](https://github.com/KimMinJeong05/GuruProject/files/6565982/default.pdf)
 
 
 # 느낀점
