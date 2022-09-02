@@ -7,8 +7,8 @@
 - [개발 환경 및 배포 URL](#2개발-환경-및-배포-URL-)
 - [프로젝트 구조와 개발 일정](#3-프로젝트-구조와-개발-일정-)
 - [역할 분담](#역할-분담-)
-- [UI/BM](#UI/BM-)
-- [데이터베이스 모델링(ERD)](#6-데이터베이스-모델링(ERD)-)
+- [UI/BM](#uibm-)
+- [데이터베이스 모델링(ERD)](#6-데이터베이스-모델링-erd-)
 - [메인 기능](#7-메인-기능-)
 - [추가 기능](#8-추가-기능-)
 - [개발하며 느낀점](#개발하며-느낀점-)
@@ -85,7 +85,7 @@
 <img src="https://github.com/limzzum/prejeju/blob/main/images/page8.png" width="400" height="240"/>
 <img src="https://github.com/limzzum/prejeju/blob/main/images/page9.png" width="400" height="240"/>
 
-## 6. 데이터베이스 모델링(ERD) 🏗️ 
+## 6. 데이터베이스 모델링 ERD 🏗️ 
 
 ## 7. 메인 기능 🌟 
 
