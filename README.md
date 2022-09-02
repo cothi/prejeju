@@ -70,7 +70,7 @@
 
 ---
 
-# 5.UI/BM
+# UI/BM
 ![figma ui](https://github.com/limzzum/prejeju/blob/main/images/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-09-02%20%EC%98%A4%EC%A0%84%2011.01.46.png)
 
 # 6. 데이터베이스 모델링(ERD)
