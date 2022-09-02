@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/cothi/prejeju/static/css/main.bc2dff21.css",
+    "main.js": "/cothi/prejeju/static/js/main.51a22870.js",
+    "static/js/787.7b7d2f77.chunk.js": "/cothi/prejeju/static/js/787.7b7d2f77.chunk.js",
+    "static/media/stone.svg": "/cothi/prejeju/static/media/stone.8f7962ebc2848ed6662b693802cb418f.svg",
+    "static/media/logo.svg": "/cothi/prejeju/static/media/logo.4f45d5c753e6f344a9210e9f97903803.svg",
+    "static/media/tree.svg": "/cothi/prejeju/static/media/tree.880417d1e31dc2f9265a9200c4456b74.svg",
+    "static/media/surfingboard.svg": "/cothi/prejeju/static/media/surfingboard.896fb3a3d3db75eed1861ebda048436f.svg",
+    "index.html": "/cothi/prejeju/index.html",
+    "static/media/wave.svg": "/cothi/prejeju/static/media/wave.59a57943758da5a9be09c0b1cd8a1ef0.svg",
+    "static/media/surfingboard2.svg": "/cothi/prejeju/static/media/surfingboard2.d5f2ac00f6d761cf7d71614223c87630.svg",
+    "main.bc2dff21.css.map": "/cothi/prejeju/static/css/main.bc2dff21.css.map",
+    "main.51a22870.js.map": "/cothi/prejeju/static/js/main.51a22870.js.map",
+    "787.7b7d2f77.chunk.js.map": "/cothi/prejeju/static/js/787.7b7d2f77.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bc2dff21.css",
+    "static/js/main.51a22870.js"
+  ]
+}
