@@ -14,12 +14,20 @@ h2  {
     display: flex;
 }
 .mainRoot {
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
   width: 100%;
   height: 100%;
+  
 }
 
 .main{
     background-color: #BBDEFB;
+    display: flex;
+    flex-direction: column;
+    justify-content:start;
+    align-items: baseline;
     margin: 10px;
     width: 60%;
     height: 400px;
@@ -27,6 +35,21 @@ h2  {
     padding-left: 30px;
     padding-right: 50px;
     overflow-y: scroll
+}
+.itemList {
+  font-size: 22px;
+}
+
+
+.airLi {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+}
+
+.titleCafe {
+  padding: 5% 0 0;
 }
 
 .modify {

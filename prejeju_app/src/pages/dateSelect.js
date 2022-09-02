@@ -16,9 +16,12 @@ import { useDispatch } from "react-redux";
 
 import { pageSet } from "../actions/action"
 
+
 function DateSelect() {
 
   // ✅ a change in default state: { from: ..., to: ... }
+  const navigate = useNavigate();
+
 
 
   const [nextTab, setNextTab] = useState("");
@@ -30,6 +33,10 @@ function DateSelect() {
   const dispatch = useDispatch();
   const pickData = ["운임료", "카페",];
   const setObj = {};
+
+  const cookies = new Cookies;
+
+
 
 
   const pageObj = {
@@ -43,6 +50,9 @@ function DateSelect() {
   const cookie = new Cookies();
 
   useEffect(() => {
+    cookies.remove("cafe")
+    cookies.remove("air")
+    cookies.remove("page")
 
 
     setNextTab(pageObj[selected[0]]);
@@ -67,14 +77,14 @@ function DateSelect() {
 
 
   return (
-    <div>
+    <div className="selectRoot">
       <a href="/">
         <div>
           <img src={logo} className="logo" alt="로고" />
           <h1 className="mainTitleLogo">내 주머니</h1>
         </div>
       </a>
-      <div className="main">
+      <div className="mains">
 
         <div className="dateBody">
 
@@ -110,7 +120,7 @@ function DateSelect() {
                     >
                       {
                         pickData.map((v, i) => (
-                          <div key={i}>
+                          <div key={"airp" + i}>
                             <Checkbox color="success" value={v}> {i + 1}. {v}</Checkbox>
                           </div>
                         ))
@@ -126,15 +136,32 @@ function DateSelect() {
           </div>
           <div className="directionMain">
             <div className="directionCont">
-              <a href={"/type/" + nextTab} >
-                <div className="directionCont">
-                  <div>
-                    다음
-                  </div>
-                  <Icon icon="carbon:next-filled" color="#1976d2" />
-                </div>
+              {
+                selected.lenght < 1 ?
+                  <a onClick={() => {
+                    alert("카테고리를 선택하세요!")
 
-              </a>
+                  }}>
+                    <div className="directionCont">
+                      <div>
+                        다음
+                      </div>
+                      <Icon icon="carbon:next-filled" color="#1976d2" />
+                    </div>
+
+                  </a>
+                  :
+                  <a href={"/type/" + nextTab} >
+                    <div className="directionCont">
+                      <div>
+                        다음
+                      </div>
+                      <Icon icon="carbon:next-filled" color="#1976d2" />
+                    </div>
+
+                  </a>
+
+              }
             </div>
           </div>
 

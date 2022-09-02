@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 
-.main {
+.mains {
   font-family: 'Black Han Sans', sans-serif;
   display: flex;
   justify-content: center;
@@ -48,10 +48,9 @@
   padding: 20% 5% 0 0;
 }
 
-.directionMain {
-  
-}
+
 .categoryMain {
   background-color: #64B5F6 ;
 }
+
 

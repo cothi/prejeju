@@ -6,12 +6,14 @@ import { Icon } from '@iconify/react';
 import "./dateSelect.css"
 import { useDispatch } from "react-redux";
 import { airplaneAdd } from "../actions/action"
-import { Link } from "react-router-dom";
 import { Cookies } from "react-cookie"
 import logo from "../assets/img/logo.svg";
+import { Link, useNavigate } from "react-router-dom";
 
 
 function Airplane({ airData, pageData }) {
+
+
   const [goData, setGoData] = useState(null);
   const [backData, setBackData] = useState(null);
   const [airPriData, setAirPriData] = useState({
@@ -30,6 +32,7 @@ function Airplane({ airData, pageData }) {
   }
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [nextPage, setNextPage] = useState("");
 
@@ -81,11 +84,11 @@ function Airplane({ airData, pageData }) {
       await axios.get(url + queryParams)
         .then(res => {
           setBackData(res.data.response.body.items)
-
         });
     }
   }
   const setAir = (type, v) => {
+
 
     let startTime = v["depPlandTime"].toString().substr(8, 2) + " : " + v["depPlandTime"].toString().substr(10, 2);
     let endTime = v["arrPlandTime"].toString().substr(8, 2) + " : " + v["arrPlandTime"].toString().substr(10, 2);
@@ -162,15 +165,21 @@ function Airplane({ airData, pageData }) {
 
   function nextTab() {
     let pageObj = cookies.get("page")
+    console.log(pageObj)
 
-    if (pageObj.tailSelect.length == 0) {
+    if (pageObj.tailSelect.length < 1) {
       setNextPage("result")
+      pageObj.tailSelect = pageObj.tailSelect.slice(1, pageObj.tailSelect.length);
+      cookies.set("page", pageObj);
+      navigate("/type/result");
     } else {
 
       setNextPage(pageObj.tailSelect[0]);
       pageObj.tailSelect = pageObj.tailSelect.slice(1, pageObj.tailSelect.length);
       cookies.set("page", pageObj);
+      navigate("/type/cafe");
     }
+
   };
 
 
@@ -263,7 +272,7 @@ function Airplane({ airData, pageData }) {
                   return <></>
                 }
                 return (
-                  <div className="liList" key={i} onClick={() => {
+                  <div className="liList" key={"aiir" + i} onClick={() => {
                     setAir("back", v);
                   }}>
                     <div>{v["airlineNm"]}
@@ -296,14 +305,14 @@ function Airplane({ airData, pageData }) {
           <div>
           </div>
         </div>
-        <Link to={"/type/cafe"} onClick={() => nextTab()}>
+        <div onClick={() => nextTab()}>
           <div className="directionCont">
             <div>
               다음
             </div>
             <Icon icon="carbon:next-filled" color="#1976d2" />
           </div>
-        </Link>
+        </div>
       </div>
     </>
   )

@@ -1,13 +1,33 @@
-import react from "react"
+import react, { useState } from "react"
 import { Cookies } from "react-cookie";
 import { Link } from "react-router-dom";
 import "./result.css"
 
 function Result() {
-  const cookies = new Cookies;
+  const cookies = new Cookies();
+
   const cafeData = cookies.get("cafe")
   const airData = cookies.get("air")
   const pageData = cookies.get("page")
+  const [addData, setAddData] = useState([]);
+  const [text, setText] = useState("");
+  const [price, setPrice] = useState("");
+
+
+  const onChange1 = (event) => {
+    setText(event.target);
+  }
+
+  const onChange2 = (event) => {
+
+    setPrice(event.target);
+  }
+
+
+
+  console.log(cafeData);
+  console.log(airData);
+  console.log(pageData);
 
   return (
     <div className="mainRoot">
@@ -15,6 +35,49 @@ function Result() {
       <h2>추가하기</h2>
       <div className="content">
         <div className="main">
+          <div>
+            항공 운임료
+          </div>
+
+          {
+            airData ?
+
+              <div className="airLi">
+                <div>
+                  {airData.go["name"]}
+                </div>
+                <div>
+                  {airData.go["start"]}
+                </div>
+                <div>
+                  {airData.go["end"]}
+                </div>
+                <div>
+                  가격: {airData.go["price"]}
+                </div>
+              </div>
+
+              :
+              null
+          }
+
+
+
+          <div className="titleCafe">
+            카페
+          </div>
+          {
+            cafeData ?
+              Object.keys(cafeData).map((v, i) => (
+                cafeData[v].map((k, j) => (
+                  <div className={"itemList"} key={i}>
+                    {v}. {k}
+                  </div>
+                ))
+              ))
+              :
+              null
+          }
 
 
         </div>
