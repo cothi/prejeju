@@ -1,5 +1,5 @@
 ### 제주도 여행 경비 예측 서비스
-  여행 시기에 따라 매번 달라지는 비행기, 숙소, 렌트카 비용... 
+  여행 시기에 따라 매번 달라지는 비행기, 숙소, 렌트카 비용...     
   제주 여행할 땐 어느 시기가 가장 적절할지 쉽게 알아보자.
   
 ## 목차
@@ -72,6 +72,17 @@
 
 ## UI/BM
 ![figma ui](https://github.com/limzzum/prejeju/blob/main/images/figmaUI.png)
+<img src="https://github.com/limzzum/prejeju/blob/main/images/index_page.png" width="200" height="400"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page1.png" width="200" height="400"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/loading_page.png" width="200" height="400"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page2.png" width="200" height="400"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page3.png" width="200" height="400"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page4.png" width="200" height="400"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page5.png" width="200" height="400"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page6.png" width="200" height="400"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page7.png" width="200" height="400"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page8.png" width="200" height="400"/>
+<img src="https://github.com/limzzum/prejeju/blob/main/images/page9.png" width="200" height="400"/>
 
 ## 6. 데이터베이스 모델링(ERD)
 
