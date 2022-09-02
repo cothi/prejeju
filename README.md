@@ -85,11 +85,11 @@
 <img src="https://github.com/limzzum/prejeju/blob/main/images/page8.png" width="400" height="240"/>
 <img src="https://github.com/limzzum/prejeju/blob/main/images/page9.png" width="400" height="240"/>
 
-##6. 데이터베이스 모델링(ERD) 🏗️
+## 6. 데이터베이스 모델링(ERD) 🏗️
 
-##7. 메인 기능 🌟
+## 7. 메인 기능 🌟
 
-##8. 추가 기능 ➕
+## 8. 추가 기능 ➕
 
 
 ## 개발 스택 🛠️
