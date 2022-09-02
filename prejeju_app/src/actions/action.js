@@ -1,5 +1,13 @@
 import * as type from "./actionType"
 
+
+export const pageSet = data => (
+  {
+    type: type.pageSet,
+    payload: data,
+  }
+)
+
 export const cafeAdd = data => (
   {
     type: type.cafeAdd,
@@ -55,4 +63,9 @@ export const lodgeDel = data => (
   }
 );
 
-
+export const airplaneAdd = data => (
+  {
+    type: type.airplaneAdd,
+    payload: data,
+  }
+)

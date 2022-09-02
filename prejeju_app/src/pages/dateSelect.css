@@ -20,8 +20,13 @@
 }
 .directionCont {
   display: flex;
-  width: 10%;
+  width: 20%;
   justify-content: space-between;
+  vertical-align: center;
+  align-items: center;
+  text-align: center;
+
+  height: 10%;
 }
 .dateBody {
   height: 70%;
@@ -51,3 +56,4 @@
 .categoryMain {
   background-color: #64B5F6 ;
 }
+

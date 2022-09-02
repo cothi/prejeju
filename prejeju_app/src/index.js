@@ -8,7 +8,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import DateSelect from "./pages/dateSelect"
+import DateSelect from "./reducers/dateSelect"
 import CafePage from "./reducers/cafe"
 import CarLodPage from "./reducers/carlod"
 import AirPage from "./reducers/airplane"
@@ -23,7 +23,7 @@ root.render(
   <Provider store={store} >
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route exact path="/" element={<App />} />
         <Route path="/type" element={<DateSelect />} />
         <Route path="/type/cafe" element={<CafePage />} />
         <Route path="/type/carlod" element={<CarLodPage />} />

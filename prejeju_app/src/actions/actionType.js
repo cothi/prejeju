@@ -1,5 +1,7 @@
 
 
+export const pageSet = "PAGE_SET";
+
 
 export const cafeSet = "CAFE_SET";
 export const cafeDel = "CAFE_DEL";

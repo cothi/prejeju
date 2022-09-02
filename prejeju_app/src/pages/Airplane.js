@@ -1,13 +1,35 @@
 import axios from "axios"
 import react, { useEffect, useState } from "react"
 import "./airplane.css"
+
 import { Icon } from '@iconify/react';
-
 import "./dateSelect.css"
+import { useDispatch } from "react-redux";
+import { airplaneAdd } from "../actions/action"
+import { Link } from "react-router-dom";
+import { Cookies } from "react-cookie"
 
-function Airplane({ airData }) {
-  const [goData, setGoData] = useState([]);
-  const [backData, setBackData] = useState([]);
+
+function Airplane({ airData, pageData }) {
+  const [goData, setGoData] = useState(null);
+  const [backData, setBackData] = useState(null);
+  const [airPriData, setAirPriData] = useState({
+    go: null,
+    back: null,
+  });
+  const [goText, setGoText] = useState("");
+  const [backText, setBackText] = useState("");
+
+  const setAirObj = {
+    name: "",
+    start: "",
+    end: "",
+    price: "",
+  }
+
+  const dispatch = useDispatch();
+
+  const [nextPage, setNextPage] = useState("");
 
   let port = {
     "무안": "NAARKJB", "광주": "NAARKJJ", "군산": "NAARKJK", "여수": "NAARKJY",
@@ -15,7 +37,7 @@ function Airplane({ airData }) {
     "김포": "NAARKSS", "포항": "NAARKTH", "대구": "NAARKTN", "청주": "NAARKTU"
   };
 
-  const airGet = async (department, arrive, ulList) => {
+  const airGet = async (department, arrive, ulList, pageData) => {
     let url =
       "http://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getFlightOpratInfoList"; /*URL*/
     let queryParams =
@@ -52,33 +74,97 @@ function Airplane({ airData }) {
       await axios.get(url + queryParams)
         .then(res => {
           setGoData(res.data.response.body.items);
-          console.log(goData)
         });
     } else {
       await axios.get(url + queryParams)
         .then(res => {
           setBackData(res.data.response.body.items)
 
-          console.log(backData)
         });
     }
   }
+  const setAir = (type, v) => {
+
+    let startTime = v["depPlandTime"].toString().substr(8, 2) + " : " + v["depPlandTime"].toString().substr(10, 2);
+    let endTime = v["arrPlandTime"].toString().substr(8, 2) + " : " + v["arrPlandTime"].toString().substr(10, 2);
+    setAirObj.name = v["airlineNm"]
+    setAirObj.start = startTime;
+    setAirObj.end = endTime;
+    setAirObj.price = v["economyCharge"];
+
+
+    let data = setAirObj;
+
+    if (type == "go") {
+      setAirPriData({
+        go: data,
+        back: airPriData.back
+      })
+      setGoText(setAirObj.name + " " + startTime);
+    } else {
+      setAirPriData({
+        go: airPriData.go,
+        back: data
+      })
+      setBackText(setAirObj.name + " " + startTime);
+    }
+  }
+
 
   useEffect(() => {
 
+    if (backData == null || goData == null) {
 
-    airGet("김포", "제주", "go");
-    airGet("제주", "김포", "back");
+      airGet("김포", "제주", "go");
+      airGet("제주", "김포", "back");
+    } else {
+      dispatch(airplaneAdd(airPriData));
+    }
+  }, [airPriData])
 
 
-    console.log(backData, "backData")
-    console.log(goData, "goData")
-  }, [])
+  if (backData == null || goData == null) {
+    return (
+      <div className="loader">
+        <Icon icon="fluent:airplane-take-off-16-regular" width="80" height="90" />
+        loading...
+      </div>
+    )
+  }
+
+  const cookies = new Cookies();
+  function nextTab() {
+    let pageObj = cookies.get("page")
+
+    if (pageObj.tailSelect.length == 0) {
+      setNextPage("result")
+    } else {
+
+      setNextPage(pageObj.tailSelect[0]);
+      pageObj.tailSelect = pageObj.tailSelect.slice(1, pageObj.tailSelect.length);
+      cookies.set("page", pageObj);
+    }
+  };
+
 
   return (
     <>
 
-      <button className="datebutton">날짜 변경</button>
+      <button className="datebutton">
+        <div>
+          출발, {" "}
+          {
+            goText
+          }
+        </div>
+        <div>
+          오는, {" "}
+          {
+            backText
+          }
+        </div>
+
+      </button>
       <div className="airplaneRoot">
 
         <article >
@@ -101,7 +187,9 @@ function Airplane({ airData }) {
                   return <></>
                 }
                 return (
-                  <div className="liList">
+                  <div className="liList" onClick={() => {
+                    setAir("go", v);
+                  }} key={i}>
                     <div>{v["airlineNm"]}
                     </div>
                     <div>
@@ -136,17 +224,16 @@ function Airplane({ airData }) {
             <h4>도착</h4>
             <h4>가격</h4>
           </section>
-          <ul id="go" className="ulList">
-
-
-
+          <ul id="back" className="ulList">
             {
-              backData.item ? goData.item.map((v, i) => {
+              backData.item != null ? goData.item.map((v, i) => {
                 if (v["economyCharge"] == null) {
                   return <></>
                 }
                 return (
-                  <div className="liList">
+                  <div className="liList" key={i} onClick={() => {
+                    setAir("back", v);
+                  }}>
                     <div>{v["airlineNm"]}
                     </div>
                     <div>
@@ -169,29 +256,22 @@ function Airplane({ airData }) {
                 :
                 null
             }
-
-
-
           </ul>
         </article>
-
-
-
-
-      </div >
+      </div>
       <div className="directionMain">
         <div className="directionCont">
-          <Icon icon="carbon:previous-filled" color="#1976d2" />
           <div>
-            이전
           </div>
         </div>
-        <div className="directionCont">
-          <div>
-            다음
+        <Link to={"/type/cafe"} onClick={() => nextTab()}>
+          <div className="directionCont">
+            <div>
+              다음
+            </div>
+            <Icon icon="carbon:next-filled" color="#1976d2" />
           </div>
-          <Icon icon="carbon:next-filled" color="#1976d2" />
-        </div>
+        </Link>
       </div>
     </>
   )

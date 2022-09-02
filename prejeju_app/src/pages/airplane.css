@@ -12,7 +12,6 @@ main {
   margin-bottom: 20px;
   width: 230px;
   height: 63px;
-  display: flex;
   align-items: center;
   justify-content: center;
   background-color: #e3f2fd;
@@ -75,4 +74,15 @@ section {
   justify-content: center;
 
   align-items: center;
+}
+
+.loader {
+  display: flex;
+  width: 363px;
+  height: 77px;
+  position: absolute;
+  left: 40%;
+  top: 43%;
+  align-items: center;
+  font-size: 50px;
 }

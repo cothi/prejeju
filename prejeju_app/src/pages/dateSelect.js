@@ -1,31 +1,68 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import { Calendar } from "react-modern-calendar-datepicker"
 //import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
 import { Checkbox, Grid } from '@nextui-org/react';
+
+import { Link, useNavigate } from "react-router-dom";
+import { Cookies } from 'react-cookie'
+
 import { Icon } from '@iconify/react';
 
 
 import "./dateSelect.css"
+import { useDispatch } from "react-redux";
 
+import { pageSet } from "../actions/action"
 
 function DateSelect() {
 
   // ✅ a change in default state: { from: ..., to: ... }
+
+
+  const [nextTab, setNextTab] = useState("");
+  const [selected, setSelected] = useState([]);
   const [selectedDayRange, setSelectedDayRange] = useState({
     from: null,
     to: null
   });
-
-  const [selected, setSelected] = useState([]);
-  console.log(selected)
-
-
+  const dispatch = useDispatch();
+  const pickData = ["운임료", "숙박/렌트카", "맛집", "카페", "관광지"];
+  const setObj = {};
 
 
+  const pageObj = {
+    "운임료": "airplane",
+    "숙박/렌트카": "carlod",
+    "맛집": "food",
+    "카페": "cafe",
+    "관광지": "tour"
+  }
+
+  const cookie = new Cookies();
+
+  useEffect(() => {
 
 
-  const pickData = ["운임료", "숙박/렌트카", "맛집", "카페", "관광지"]
+    setNextTab(pageObj[selected[0]]);
+    setObj["tailSelect"] = selected.slice(1, selected.length);
+    setObj["select"] = selected;
+    cookie.set("page", setObj);
+
+
+    if (selectedDayRange.to == null) {
+      return
+    }
+    const datess = JSON.parse(JSON.stringify(selectedDayRange))
+    setObj["dates"] = datess;
+    cookie.set("page", setObj);
+
+    console.log(cookie.get("page"))
+
+
+  }, [selected, selectedDayRange])
+
+
   return (
     <div className="main">
       <div className="dateBody">
@@ -37,6 +74,7 @@ function DateSelect() {
               여행 날짜 선택
             </div>
             <div>
+
               <Calendar
                 value={selectedDayRange}
                 onChange={setSelectedDayRange}
@@ -76,15 +114,15 @@ function DateSelect() {
             <div>
             </div>
           </div>
-          <div className="directionCont">
-            <div>
+          <a href={"/type/" + nextTab} >
+            <div className="directionCont">
               다음
+              <Icon icon="carbon:next-filled" color="#1976d2" />
             </div>
-            <Icon icon="carbon:next-filled" color="#1976d2" />
-          </div>
+          </a>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

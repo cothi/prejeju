@@ -3,14 +3,16 @@ import React from "react"
 import Airplane from "../pages/Airplane"
 
 const mapStateToProps = state => {
+  console.log(state)
   return {
     airData: state.airplane,
+    pageData: state.page,
   };
 }
 
-const AirPage = ({ airData }) => {
+const AirPage = ({ airData, pageData }) => {
   return (
-    <Airplane airData={airData} />
+    <Airplane airData={airData} pageData={pageData} />
   )
 }
 

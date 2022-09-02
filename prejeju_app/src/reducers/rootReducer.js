@@ -8,8 +8,15 @@
 렌터카
 */
 
+import * as type from "../actions/actionType"
+
 
 const initialState = {
+  page: {
+    date: "",
+    tailSelect: [],
+    select: [],
+  },
   cafe: {},
   food: {},
   tour: {},
@@ -19,8 +26,24 @@ const initialState = {
 }
 
 const rootReducer = (state = initialState, action) => {
-  console.log(action)
+  //console.log(action, "action")
+  //console.log(state, "state")
   switch (action.type) {
+    case type.carAdd:
+      return {
+        ...state,
+        cafe: action.payload
+      }
+    case type.airplaneAdd:
+      return {
+        ...state,
+        airplane: action.payload,
+      }
+    case type.pageSet:
+      return {
+        ...state,
+        page: action.payload
+      }
     default:
       return state;
   }
