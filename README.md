@@ -76,10 +76,14 @@
   - 메인 페이지 -> 경비 예측 버튼 클릭하면 화면 이동   
      
 <img src="https://github.com/limzzum/prejeju/blob/main/images/page1.png" width="400" height="240"/>   
-  - 원하는 날짜와 경비에 포함시킬 카테고리 선택   
+  - 원하는 날짜와 경비에 포함시킬 카테고리 선택
+
+  
          
 <img src="https://github.com/limzzum/prejeju/blob/main/images/loading_page.png" width="400" height="240"/>   
   - 항공 api연결 시간 동안 나타나는 로딩 화면   
+
+
      
 <img src="https://github.com/limzzum/prejeju/blob/main/images/page2.png" width="400" height="240"/>   
   - 선택한 날짜에 따른 항공 운임료 리스트 보여줌 -> 원하는 항공편 선택   
