@@ -32,7 +32,7 @@
 ### 2.1 개발 환경
 
   UI 디자인
-    - figma [](https://www.figma.com/file/bxlPK3KOhZvUxZLT3lOJd0/%EC%A0%9C%EC%A3%BC_%EA%B2%BD%EB%B9%84_%EC%98%88%EC%B8%A1?node-id=21%3A574)
+    - figma [figma바로가기](https://www.figma.com/file/bxlPK3KOhZvUxZLT3lOJd0/%EC%A0%9C%EC%A3%BC_%EA%B2%BD%EB%B9%84_%EC%98%88%EC%B8%A1?node-id=21%3A574)
   Web Framework
     - Django 3.2(Python 3.8)
   서비스 배포 환경
@@ -110,7 +110,7 @@
 
 # 출처 🔁 
   -api : 항공 api (공공데이터 포털-국토교통부_(TAGO)_국내항공운항정보).  
-  -폰트 : Black Han Sans [font](https://fonts.google.com/specimen/Black+Han+Sans?subset=korean)
+  -폰트 : Black Han Sans [font바로가기](https://fonts.google.com/specimen/Black+Han+Sans?subset=korean)
 ---
 
 # 라이선스 🔖
