@@ -16,6 +16,7 @@
 - [라이선스](#라이선스-) 
 
 ## 1.목표와 기능 ✈️
+
 ### 1.1 목표
   - 제주 여행의 접근성을 높이기
   - 쉽고 간단하게 제주 여행 경비 예측해보기
@@ -70,6 +71,7 @@
 ---
 
 ## UI/BM 🖼️
+
 ![figma ui](https://github.com/limzzum/prejeju/blob/main/images/figmaUI.png)
 <img src="https://github.com/limzzum/prejeju/blob/main/images/index_page.png" width="400" height="240"/>
 <img src="https://github.com/limzzum/prejeju/blob/main/images/page1.png" width="400" height="240"/>
@@ -90,7 +92,6 @@
 ##8. 추가 기능 ➕
 
 
-
 ## 개발 스택 🛠️
 
 ### 앱 개발
@@ -98,17 +99,17 @@
 - 
 ### DB
 
-- 
 
 ---
 
 
-# 느낀점 🤔 
+# 느낀점 🤔
 
-# 출처 🔁 
+# 출처 🔁
 
 ###
 
 
-# 라이선스 🔖 
+# 라이선스 🔖
+
 
