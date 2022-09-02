@@ -15,7 +15,7 @@
 - [서비스](#서비스-)
 - [라이선스](#라이선스-) 
 
-##1.목표와 기능 ✈️
+## 1.목표와 기능 ✈️
 ### 1.1 목표
   - 제주 여행의 접근성을 높이기
   - 쉽고 간단하게 제주 여행 경비 예측해보기
@@ -27,7 +27,7 @@
   - 선택한 날짜에 따른 제주도 여행 총 경비 계산
 
 ---
-##2.개발 환경 및 배포 URL 🏠
+## 2.개발 환경 및 배포 URL 🏠
 
 ### 2.1 개발 환경
 
@@ -40,7 +40,7 @@
 ### 2.2 배포 URL
 
 ---
-##3.프로젝트 구조와 개발 일정 ⏲️
+## 3.프로젝트 구조와 개발 일정 ⏲️
 
 ### 3.1 프로젝트 구조
 
@@ -56,7 +56,7 @@
 
 ---
 
-##역할 분담 ☑️
+## 역할 분담 ☑️
 
 🐔 팀장 한지웅 : FE, BE
 
@@ -69,7 +69,7 @@
 
 ---
 
-##UI/BM 🖼️
+## UI/BM 🖼️
 ![figma ui](https://github.com/limzzum/prejeju/blob/main/images/figmaUI.png)
 <img src="https://github.com/limzzum/prejeju/blob/main/images/index_page.png" width="400" height="240"/>
 <img src="https://github.com/limzzum/prejeju/blob/main/images/page1.png" width="400" height="240"/>
@@ -110,5 +110,5 @@
 ###
 
 
-#라이선스 🔖 
+# 라이선스 🔖 
 
