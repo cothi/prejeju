@@ -6,13 +6,22 @@ import { Icon } from '@iconify/react';
 import "./dateSelect.css"
 import { Cookies } from "react-cookie"
 import logo from "../assets/img/logo.svg";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 function AirPrice() {
 
   const cookies = new Cookies();
-  let pageObj = cookies.get("page");
+  let navigate = useNavigate();
+  const pageObjs = {
+    "운임료": "airprice",
+    "숙박/렌트카": "carlod",
+    "맛집": "food",
+    "카페": "cafe",
+    "관광지": "tour"
+  }
+
+
 
   function nextTab() {
     let pageObj = cookies.get("page");
@@ -20,11 +29,14 @@ function AirPrice() {
     if (pageObj.tailSelect.length < 1) {
       //setNextPage("result")
       cookies.set("page", pageObj);
+      navigate("/result")
     } else {
 
       //setNextPage(pageObjs[pageObj.tailSelect[0]]);
+      let nextPage = pageObjs[pageObj.tailSelect[0]];
       pageObj.tailSelect = pageObj.tailSelect.slice(1, pageObj.tailSelect.length);
       cookies.set("page", pageObj);
+      navigate("/" + nextPage);
     }
   };
 
@@ -43,16 +55,8 @@ function AirPrice() {
     end: "",
     price: "",
   }
-  const pageObjs = {
-    "운임료": "airplane",
-    "숙박/렌트카": "carlod",
-    "맛집": "food",
-    "카페": "cafe",
-    "관광지": "tour"
-  }
 
 
-  const nextPage = pageObj.tailSelect.length !== 1 ? "/result" : pageObjs[pageObj.tailSelect[0]];
 
 
 
@@ -135,38 +139,39 @@ function AirPrice() {
     }
   }
 
-  function getFullDate(y, m, d) {
-    let year = y.toString();
-    let month = m.toString();
-    let day = d.toString();
-    let ret = year
-
-    if (month.length <= 1) {
-      ret += "0" + m;
-    } else {
-      ret += m;
-    }
-
-    if (day.length <= 1) {
-      ret += "0" + day;
-    } else {
-      ret += day;
-    }
-
-    return ret
-
-  }
+  /*   function getFullDate(y, m, d) {
+      let year = y.toString();
+      let month = m.toString();
+      let day = d.toString();
+      let ret = year
+  
+      if (month.length <= 1) {
+        ret += "0" + m;
+      } else {
+        ret += m;
+      }
+  
+      if (day.length <= 1) {
+        ret += "0" + day;
+      } else {
+        ret += day;
+      }
+  
+      return ret
+  
+    } */
 
 
   useEffect(() => {
-    console.log("Helo")
     let date = cookies.get("date");
-
-    let goDate = getFullDate(date.from.year, date.from.month, date.from.day);
-    let endDate = getFullDate(date.to.year, date.to.month, date.to.day);
-
+    /* 
+        let goDate = getFullDate(date.from.year, date.from.month, date.from.day);
+        let endDate = getFullDate(date.to.year, date.to.month, date.to.day); */
+    let goDate = date.from;
+    let endDate = date.to;
     airGet("김포", "제주", "go", goDate);
     airGet("제주", "김포", "back", endDate);
+
     cookies.set("air", airPriData);
   }, [airPriData])
 
@@ -179,24 +184,11 @@ function AirPrice() {
       </div>
     )
   }
-  /*   const pageObjs = {
-      "운임료": "airplane",
-      "숙박/렌트카": "carlod",
-      "맛집": "food",
-      "카페": "cafe",
-      "관광지": "tour"
-    } */
-
 
 
   return (
     <>
-      <Link to="/prejeju">
-        <div>
-          <img src={logo} className="logo" alt="로고" />
-          <h1 className="mainTitleLogo">내 주머니</h1>
-        </div>
-      </Link>
+
       <button className="datebutton">
         <div>
           출발, {" "}
@@ -312,12 +304,12 @@ function AirPrice() {
           </div>
         </div>
         <div className="directionCont">
-          <Link to={!nextPage ? "result" : nextPage}>
+          <div onClick={() => nextTab()}>
             <div>
               다음
             </div>
             <Icon icon="carbon:next-filled" color="#1976d2" />
-          </Link>
+          </div>
         </div>
       </div>
     </>

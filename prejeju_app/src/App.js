@@ -56,8 +56,7 @@ function App() {
         </Link>
       </div>
       <Routes >
-        <Route path="/" element={<Home />} >
-        </Route>
+        <Route path="/" element={<Home />} ></Route>
         <Route path="/airprice" element={<AirPrice />} > </Route>
         <Route path="/type" element={<DateSelect />} > </Route>
         <Route path="/cafe" element={<Cafe />} > </Route>

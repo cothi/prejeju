@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
-import "react-modern-calendar-datepicker/lib/DatePicker.css";
-import { Calendar } from "react-modern-calendar-datepicker"
 //import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
 import { Checkbox, Grid } from '@nextui-org/react';
+import { addDays, getDate, format } from 'date-fns';
 
-import logo from "../assets/img/logo.svg";
 //import { Link, useNavigate } from "react-router-dom"/* ; */
 
 import { Icon } from '@iconify/react';
+import 'react-day-picker/dist/style.css';
+
+import 'react-date-range/dist/styles.css'; // main css file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+
 
 
 import "./dateSelect.css"
@@ -16,63 +19,68 @@ import { Cookies } from "react-cookie";
 //import { useDispatch } from "react-redux";
 
 
+import { DateRangePicker } from 'react-date-range';
+
+
 
 function DateSelect() {
 
   //const [nextTab, setNextTab] = useState("");
   const [selected, setSelected] = useState([]);
-  const [selectedDayRange, setSelectedDayRange] = useState({
-    from: null,
-    to: null
-  });
+
+  const [range, setRange] = useState({});
+
+
   const pickData = ["운임료", "카페",];
   let setObj = {};
-
   const cookie = new Cookies();
   let navigate = useNavigate();
 
 
 
 
+
+  const [state, setState] = useState([
+    {
+      startDate: new Date(),
+      endDate: addDays(new Date(), 7),
+      key: 'selection'
+    }
+  ]);
+
+
+
+
   const pageObj = {
-    "운임료": "airplane",
+    "운임료": "airprice",
     "숙박/렌트카": "carlod",
     "맛집": "food",
     "카페": "cafe",
     "관광지": "tour"
   }
 
-  /*   useEffect(() => {
-  
-  
-      setObj["select"] = selected;
-      //const datess = JSON.parse(JSON.stringify(selectedDayRange))
-      //cookie.set("page", setObj);
-    }, [selected])
-   */
+
 
   function nextCalc() {
-
-
-    let page = cookie.get("page");
     let nextTab = pageObj[selected[0]]
-
+    setObj["select"] = selected;
     setObj["tailSelect"] = selected.slice(1, selected.length);
-    cookie.set("page", page);
-    cookie.set("date", selectedDayRange)
-    console.log(nextTab)
+
+    cookie.set("page", setObj);
+    cookie.set("date", {
+      from: format(state[0].startDate, "yyyyMMdd"),
+      to: format(state[0].endDate, "yyyyMMdd"),
+    })
     navigate("/" + nextTab)
   };
 
   return (
     <div className="selectRoot">
       <div>
-        <img src={logo} className="logo" alt="로고" />
-        <Link to="/">
-          <h1 className="mainTitleLogo">내 주머니</h1>
-        </Link>
+        맛집 추가 준비중
       </div>
       <div className="mains">
+
 
         <div className="dateBody">
 
@@ -82,13 +90,27 @@ function DateSelect() {
               <div className="headerTitle">
                 여행 날짜 선택
               </div>
+              <div >
+                <DateRangePicker
+                  onChange={item => setState([item.selection])}
+                  showSelectionPreview={true}
+                  moveRangeOnFirstSelection={false}
+                  months={1}
+                  ranges={state}
+                  direction="horizontal"
+                />;
+              </div>
               <div>
-
-                <Calendar
-                  value={selectedDayRange}
-                  onChange={setSelectedDayRange}
-                  shouldHighlightWeekends
-                />
+                <div>
+                  {
+                    "출발: " + format(state[0].startDate, "yyyyMMdd")
+                  }
+                </div>
+                <div>
+                  {
+                    "오는: " + format(state[0].endDate, "yyyyMMdd")
+                  }
+                </div>
               </div>
             </div>
             <div className="rightPanel">
@@ -118,14 +140,12 @@ function DateSelect() {
                 </Grid.Container>
               </div>
             </div>
-            <div>
-              맛집 추가 준비중
-            </div>
+
           </div>
           <div className="directionMain">
             <div className="directionCont">
               {
-                selected.lenght < 1 || selectedDayRange.to == null || selectedDayRange.from == null ?
+                selected.lenght < 1 ?
                   <a onClick={() => {
                     alert("날짜(출발, 오는 날)와 카테고리(1개 이상 선택)를 확인하세요!")
                   }}>
@@ -146,9 +166,7 @@ function DateSelect() {
                         </div>
                         <Icon icon="carbon:next-filled" color="#1976d2" />
                       </div>
-
                     </div>
-
                   </div>
 
               }

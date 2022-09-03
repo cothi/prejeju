@@ -8,19 +8,19 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { Checkbox, Grid } from '@nextui-org/react';
 import { Cookies } from "react-cookie"
-import { Link } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 // 1f7afd5b956dfb17cf04da6a826eb37d
 
 function Cafe() {
 
 
   const [showCafe, setShowCafe] = useState({});
-  const [nextPage, setNextPage] = useState("");
 
   const [, updateState] = useState();
   const forceUpdate = useCallback(() => updateState({}), []);
   const cookies = new Cookies();
   const data_json = cafe_data;
+  let navigate = useNavigate();
 
   const [level, setLevel] = useState(10);
 
@@ -56,21 +56,19 @@ function Cafe() {
     forceUpdate();
   }
 
-  useEffect(() => {
-    nextTab();
-  }, [])
-
 
 
   function nextTab() {
     let pageObj = cookies.get("page")
 
     if (pageObj.tailSelect.length === 0) {
-      setNextPage("result")
+      navigate("/result")
+
     } else {
-      setNextPage(pageObj.tailSelect[0]);
+      let nextPage = pageObj.tailSelect[0];
       pageObj.tailSelect = pageObj.tailSelect.slice(1, pageObj.tailSelect.length);
       cookies.set("page", pageObj);
+      navigate(nextPage);
     }
   };
 
@@ -206,11 +204,11 @@ function Cafe() {
       </div>
 
       <div className="footer">
-        <Link to={nextPage} className="nextBtn" onClick={() => nextTab()}>
+        <div className="nextBtn" onClick={() => nextTab()}>
           <div>
             다음
           </div>
-        </Link>
+        </div>
       </div>
 
 
