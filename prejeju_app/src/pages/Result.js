@@ -10,6 +10,7 @@ function Result() {
 
   const cafeData = cookies.get("cafe")
   const airData = cookies.get("air")
+  console.log(airData)
   //const pageData = cookies.get("page")
   const [addData, setAddData] = useState([]);
   const [text, setText] = useState("");
@@ -37,13 +38,8 @@ function Result() {
 
   return (
     <div className="mainRoot">
-      <a href="/prejeju" className="logoRe">
-        <div>
-          <img src={logo} className="logo" alt="로고" />
-          <h1 className="mainTitleLogo">내 주머니</h1>
-        </div>
-      </a>
-      <h1>총 제주 여행 경비</h1>
+
+      <div className="title">총 제주 여행 경비</div>
       <h2>추가하기</h2>
 
       <div className="content">
@@ -54,9 +50,7 @@ function Result() {
 
           {
             airData ?
-
               <div>
-
                 <div className="airLi">
                   <div>
                     {airData.go["name"]}
@@ -73,16 +67,16 @@ function Result() {
                 </div>
                 <div className="airLi">
                   <div>
-                    {airData.end["name"]}
+                    {airData.back["name"]}
                   </div>
                   <div>
-                    {airData.end["start"]}
+                    {airData.back["start"]}
                   </div>
                   <div>
-                    {airData.end["end"]}
+                    {airData.back["end"]}
                   </div>
                   <div>
-                    가격: {airData.end["price"]}
+                    가격: {airData.back["price"]}
                   </div>
                 </div>
               </div>

@@ -14,11 +14,11 @@ import { useNavigate, Link } from "react-router-dom"
 function Cafe() {
 
 
+  const cookies = new Cookies();
   const [showCafe, setShowCafe] = useState({});
 
   const [, updateState] = useState();
   const forceUpdate = useCallback(() => updateState({}), []);
-  const cookies = new Cookies();
   const data_json = cafe_data;
   let navigate = useNavigate();
 
@@ -47,6 +47,9 @@ function Cafe() {
       </MapMarker>
     )
   }
+  useEffect(() => {
+    cookies.remove("cafe")
+  }, [])
 
   function stateChange(name, selecetd) {
     let tmp = showCafe;
@@ -56,19 +59,27 @@ function Cafe() {
     forceUpdate();
   }
 
-
+  const pageObjs = {
+    "운임료": "airprice",
+    "숙박/렌트카": "carlod",
+    "맛집": "food",
+    "카페": "cafe",
+    "관광지": "tour"
+  }
 
   function nextTab() {
     let pageObj = cookies.get("page")
+    console.log(pageObj, "why?")
 
-    if (pageObj.tailSelect.length === 0) {
+    if (pageObj.tailSelect.length < 1) {
       navigate("/result")
 
     } else {
-      let nextPage = pageObj.tailSelect[0];
-      pageObj.tailSelect = pageObj.tailSelect.slice(1, pageObj.tailSelect.length);
+      let nextPage = pageObjs[pageObj.tailSelect[0]];
+      console.log(nextPage);
+      pageObj.tailSelect = pageObj.tailSelect.slice(1);
       cookies.set("page", pageObj);
-      navigate(nextPage);
+      navigate("/" + nextPage);
     }
   };
 

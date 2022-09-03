@@ -28,11 +28,9 @@ function DateSelect() {
   //const [nextTab, setNextTab] = useState("");
   const [selected, setSelected] = useState([]);
 
-  const [range, setRange] = useState({});
 
 
   const pickData = ["운임료", "카페",];
-  let setObj = {};
   const cookie = new Cookies();
   let navigate = useNavigate();
 
@@ -62,15 +60,21 @@ function DateSelect() {
 
 
   function nextCalc() {
-    let nextTab = pageObj[selected[0]]
-    setObj["select"] = selected;
-    setObj["tailSelect"] = selected.slice(1, selected.length);
 
-    cookie.set("page", setObj);
+    if (selected.length === 0) {
+      alert("카테고리를 선택과 날짜를 확인해주세요!")
+      return
+    }
+
+    let nextTab = pageObj[selected[0]];
+
+
+    cookie.remove("page");
+    cookie.set("page", { selecet: selected, tailSelect: selected.slice(1) });
     cookie.set("date", {
       from: format(state[0].startDate, "yyyyMMdd"),
       to: format(state[0].endDate, "yyyyMMdd"),
-    })
+    });
     navigate("/" + nextTab)
   };
 

@@ -14,15 +14,15 @@ import AirPrice from "./pages/AirPrice"
 //import Food from "./pages/Food"
 import Tour from "./pages/Tour"
 import Result from "./pages/Result"
+import { Cookies } from 'react-cookie';
+import { useEffect } from 'react';
 
 
 function Home() {
+  // const cookies = new Cookies();
+
   return (
     <div className="App">
-      <div>
-        <img src={logo} className="logo" alt="로고" />
-        <h1 className="mainTitleLogo">내 주머니</h1>
-      </div>
       <div>
         <Link to="/type">
           <div className="button">
@@ -49,12 +49,10 @@ function App() {
   return (
     <BrowserRouter basename="/prejeju" >
 
-      <div>
-        <Link to="/">
-          <img src={logo} className="logo" alt="로고" />
-          <h1 className="mainTitleLogo">내 주머니</h1>
-        </Link>
-      </div>
+      <Link to="/">
+        <img src={logo} className="logo" alt="로고" />
+        <h1 className="mainTitleLogo">내 주머니</h1>
+      </Link>
       <Routes >
         <Route path="/" element={<Home />} ></Route>
         <Route path="/airprice" element={<AirPrice />} > </Route>

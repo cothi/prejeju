@@ -12,11 +12,15 @@ h2  {
 .logoRe {
   padding: 0 0 10% 0;
 }
+.title {
+  font-size: 30px;
+}
 
 .content {
     display: flex;
 }
 .mainRoot {
+    font-family: 'Black Han Sans', sans-serif;
   display: flex;
   flex-direction:column;
   justify-content:center;
@@ -35,8 +39,8 @@ h2  {
     width: 60%;
     height: 400px;
     font-size: 34px;
-    padding-left: 30px;
-    padding-right: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
     overflow-y: scroll
 }
 .itemList {
@@ -47,8 +51,13 @@ h2  {
 .airLi {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  font-size: 22px;
+  align-items: center;
+}
+
+.airLi > div{
+  width: 110px;
+  font-size: 20px;
+  padding: 0 2% 0 0;
 }
 
 .titleCafe {

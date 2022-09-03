@@ -49,12 +49,7 @@ function Tour() {
 
   return (
     <>
-      <Link to="/prejeju">
-        <div>
-          <img src={logo} className="logo" alt="로고" />
-          <h1 className="mainTitleLogo">내 주머니</h1>
-        </div>
-      </Link>
+
       <div className="setRoot">
 
         <div className="setMain">
