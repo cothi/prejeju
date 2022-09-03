@@ -11,7 +11,6 @@ import 'reactjs-popup/dist/index.css';
 // 1f7afd5b956dfb17cf04da6a826eb37d
 
 function Tour() {
-  console.log(tour_data)
 
 
   const data_json = tour_data;
@@ -50,7 +49,7 @@ function Tour() {
 
   return (
     <>
-      <Link to="/">
+      <Link to="/prejeju">
         <div>
           <img src={logo} className="logo" alt="로고" />
           <h1 className="mainTitleLogo">내 주머니</h1>

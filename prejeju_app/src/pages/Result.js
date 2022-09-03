@@ -55,18 +55,35 @@ function Result() {
           {
             airData ?
 
-              <div className="airLi">
-                <div>
-                  {airData.go["name"]}
+              <div>
+
+                <div className="airLi">
+                  <div>
+                    {airData.go["name"]}
+                  </div>
+                  <div>
+                    {airData.go["start"]}
+                  </div>
+                  <div>
+                    {airData.go["end"]}
+                  </div>
+                  <div>
+                    가격: {airData.go["price"]}
+                  </div>
                 </div>
-                <div>
-                  {airData.go["start"]}
-                </div>
-                <div>
-                  {airData.go["end"]}
-                </div>
-                <div>
-                  가격: {airData.go["price"]}
+                <div className="airLi">
+                  <div>
+                    {airData.end["name"]}
+                  </div>
+                  <div>
+                    {airData.end["start"]}
+                  </div>
+                  <div>
+                    {airData.end["end"]}
+                  </div>
+                  <div>
+                    가격: {airData.end["price"]}
+                  </div>
                 </div>
               </div>
 

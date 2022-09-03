@@ -6,22 +6,20 @@ import { Checkbox, Grid } from '@nextui-org/react';
 
 import logo from "../assets/img/logo.svg";
 //import { Link, useNavigate } from "react-router-dom"/* ; */
-import { Cookies } from 'react-cookie'
 
 import { Icon } from '@iconify/react';
 
 
 import "./dateSelect.css"
+import { Link, useNavigate } from "react-router-dom";
+import { Cookies } from "react-cookie";
 //import { useDispatch } from "react-redux";
 
 
 
 function DateSelect() {
 
-
-
-
-  const [nextTab, setNextTab] = useState("");
+  //const [nextTab, setNextTab] = useState("");
   const [selected, setSelected] = useState([]);
   const [selectedDayRange, setSelectedDayRange] = useState({
     from: null,
@@ -30,7 +28,8 @@ function DateSelect() {
   const pickData = ["운임료", "카페",];
   let setObj = {};
 
-  const cookies = new Cookies();
+  const cookie = new Cookies();
+  let navigate = useNavigate();
 
 
 
@@ -43,43 +42,36 @@ function DateSelect() {
     "관광지": "tour"
   }
 
-  const cookie = new Cookies();
+  /*   useEffect(() => {
+  
+  
+      setObj["select"] = selected;
+      //const datess = JSON.parse(JSON.stringify(selectedDayRange))
+      //cookie.set("page", setObj);
+    }, [selected])
+   */
 
-  useEffect(() => {
-    cookies.remove("cafe")
-    cookies.remove("air")
-    cookies.remove("page")
+  function nextCalc() {
 
 
-    setNextTab(pageObj[selected[0]]);
+    let page = cookie.get("page");
+    let nextTab = pageObj[selected[0]]
+
     setObj["tailSelect"] = selected.slice(1, selected.length);
-    setObj["select"] = selected;
-    cookie.set("page", setObj);
-
-
-    if (selectedDayRange.to == null) {
-      return
-    }
-    const datess = JSON.parse(JSON.stringify(selectedDayRange))
-    setObj["dates"] = datess;
-    cookie.set("page", setObj);
+    cookie.set("page", page);
     cookie.set("date", selectedDayRange)
-
-
-  }, [selected, selectedDayRange])
-
-
-
-
+    console.log(nextTab)
+    navigate("/" + nextTab)
+  };
 
   return (
     <div className="selectRoot">
-      <a href="/">
-        <div>
-          <img src={logo} className="logo" alt="로고" />
+      <div>
+        <img src={logo} className="logo" alt="로고" />
+        <Link to="/">
           <h1 className="mainTitleLogo">내 주머니</h1>
-        </div>
-      </a>
+        </Link>
+      </div>
       <div className="mains">
 
         <div className="dateBody">
@@ -146,15 +138,18 @@ function DateSelect() {
 
                   </a>
                   :
-                  <a href={"/type/" + nextTab} >
-                    <div className="directionCont">
-                      <div>
-                        다음
+                  <div onClick={() => nextCalc()}>
+                    <div >
+                      <div className="directionCont">
+                        <div>
+                          다음
+                        </div>
+                        <Icon icon="carbon:next-filled" color="#1976d2" />
                       </div>
-                      <Icon icon="carbon:next-filled" color="#1976d2" />
+
                     </div>
 
-                  </a>
+                  </div>
 
               }
             </div>

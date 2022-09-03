@@ -5,10 +5,18 @@ import surfingboard from "./assets/img/surfingboard.svg"
 import surfingboard2 from "./assets/img/surfingboard2.svg"
 import stone from "./assets/img/stone.svg"
 import tree from "./assets/img/tree.svg"
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+
+import DateSelect from "./pages/dateSelect"
+import Cafe from "./pages/Cafe"
+import AirPrice from "./pages/AirPrice"
+//import CarLod from "./pages/CarLod"
+//import Food from "./pages/Food"
+import Tour from "./pages/Tour"
+import Result from "./pages/Result"
 
 
-function App() {
+function Home() {
   return (
     <div className="App">
       <div>
@@ -16,12 +24,12 @@ function App() {
         <h1 className="mainTitleLogo">내 주머니</h1>
       </div>
       <div>
-        <Link to="/prejeju/type">
+        <Link to="/type">
           <div className="button">
             <button className="mainButton">여행 경비 추측하러 가기</button>
           </div>
         </Link>
-        <Link to="/prejeju/type/tour">
+        <Link to="/tour">
           <div className="button">
             <button className="mainButton2">관광지 보러가기</button>
           </div>
@@ -35,4 +43,29 @@ function App() {
     </div>
   );
 }
+
+function App() {
+
+  return (
+    <BrowserRouter basename="/prejeju" >
+
+      <div>
+        <Link to="/">
+          <img src={logo} className="logo" alt="로고" />
+          <h1 className="mainTitleLogo">내 주머니</h1>
+        </Link>
+      </div>
+      <Routes >
+        <Route path="/" element={<Home />} >
+        </Route>
+        <Route path="/airprice" element={<AirPrice />} > </Route>
+        <Route path="/type" element={<DateSelect />} > </Route>
+        <Route path="/cafe" element={<Cafe />} > </Route>
+        <Route path="/tour" element={<Tour />} > </Route>
+        <Route path="/result" element={<Result />} ></Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
 export default App;

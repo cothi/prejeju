@@ -206,7 +206,7 @@ function Cafe() {
       </div>
 
       <div className="footer">
-        <Link to={"/prejeju/type/" + nextPage} className="nextBtn" onClick={() => nextTab()}>
+        <Link to={nextPage} className="nextBtn" onClick={() => nextTab()}>
           <div>
             다음
           </div>

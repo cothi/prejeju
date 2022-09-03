@@ -6,11 +6,27 @@ import { Icon } from '@iconify/react';
 import "./dateSelect.css"
 import { Cookies } from "react-cookie"
 import logo from "../assets/img/logo.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 function Airplane() {
 
+  const cookies = new Cookies();
+  let pageObj = cookies.get("page");
+
+  function nextTab() {
+    let pageObj = cookies.get("page");
+
+    if (pageObj.tailSelect.length < 1) {
+      //setNextPage("result")
+      cookies.set("page", pageObj);
+    } else {
+
+      //setNextPage(pageObjs[pageObj.tailSelect[0]]);
+      pageObj.tailSelect = pageObj.tailSelect.slice(1, pageObj.tailSelect.length);
+      cookies.set("page", pageObj);
+    }
+  };
 
   const [goData, setGoData] = useState(null);
   const [backData, setBackData] = useState(null);
@@ -21,17 +37,24 @@ function Airplane() {
   const [goText, setGoText] = useState("");
   const [backText, setBackText] = useState("");
 
-  const cookies = new Cookies();
   const setAirObj = {
     name: "",
     start: "",
     end: "",
     price: "",
   }
+  const pageObjs = {
+    "운임료": "airplane",
+    "숙박/렌트카": "carlod",
+    "맛집": "food",
+    "카페": "cafe",
+    "관광지": "tour"
+  }
 
-  const navigate = useNavigate();
 
-  //const [nextPage, setNextPage] = useState("");
+  const nextPage = pageObj.tailSelect.length !== 1 ? "/result" : pageObjs[pageObj.tailSelect[0]];
+
+
 
   let port = {
     "무안": "NAARKJB", "광주": "NAARKJJ", "군산": "NAARKJK", "여수": "NAARKJY",
@@ -136,17 +159,15 @@ function Airplane() {
 
 
   useEffect(() => {
+    console.log("Helo")
     let date = cookies.get("date");
 
     let goDate = getFullDate(date.from.year, date.from.month, date.from.day);
     let endDate = getFullDate(date.to.year, date.to.month, date.to.day);
 
-    if (backData == null || goData == null) {
-      airGet("김포", "제주", "go", goDate);
-      airGet("제주", "김포", "back", endDate);
-    } else {
-      cookies.set("air", airPriData);
-    }
+    airGet("김포", "제주", "go", goDate);
+    airGet("제주", "김포", "back", endDate);
+    cookies.set("air", airPriData);
   }, [airPriData])
 
 
@@ -165,28 +186,12 @@ function Airplane() {
       "카페": "cafe",
       "관광지": "tour"
     } */
-  function nextTab() {
-    let pageObj = cookies.get("page")
 
-    if (pageObj.tailSelect.length < 1) {
-      //setNextPage("result")
-      pageObj.tailSelect = pageObj.tailSelect.slice(1, pageObj.tailSelect.length);
-      cookies.set("page", pageObj);
-      navigate("/prejeju/type/result");
-    } else {
-
-      //setNextPage(pageObjs[pageObj.tailSelect[0]]);
-      pageObj.tailSelect = pageObj.tailSelect.slice(1, pageObj.tailSelect.length);
-      cookies.set("page", pageObj);
-      navigate("/prejeju/type/cafe");
-    }
-
-  };
 
 
   return (
     <>
-      <Link to="/">
+      <Link to="/prejeju">
         <div>
           <img src={logo} className="logo" alt="로고" />
           <h1 className="mainTitleLogo">내 주머니</h1>
@@ -306,13 +311,13 @@ function Airplane() {
           <div>
           </div>
         </div>
-        <div onClick={() => nextTab()}>
-          <div className="directionCont">
+        <div className="directionCont">
+          <Link to={!nextPage ? "result" : nextPage}>
             <div>
               다음
             </div>
             <Icon icon="carbon:next-filled" color="#1976d2" />
-          </div>
+          </Link>
         </div>
       </div>
     </>
