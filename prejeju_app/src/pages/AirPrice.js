@@ -68,7 +68,7 @@ function AirPrice() {
 
   const airGet = async (department, arrive, ulList, date, pageData) => {
     let url =
-      "http://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getFlightOpratInfoList"; /*URL*/
+      "https://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getFlightOpratInfoList"; /*URL*/
     let queryParams =
       "?" +
       encodeURIComponent("serviceKey") +
